@@ -1,0 +1,133 @@
+/* ============================================================
+   BIOTECHNOLOGY — error.css
+   Premium 404 Design
+============================================================ */
+
+.error-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg);
+    overflow: hidden;
+    padding: 24px;
+}
+
+.error-container {
+    max-width: 600px;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    animation: errorFadeIn 0.8s ease-out forwards;
+}
+
+@keyframes errorFadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Visual Element --- */
+.error-visual {
+    position: relative;
+    width: 280px;
+    height: 280px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dna-error-svg {
+    width: 100%;
+    height: 100%;
+    color: var(--amber);
+}
+
+.dna-strand.main {
+    stroke-dasharray: 500;
+    stroke-dashoffset: 500;
+    animation: drawStrand 2.5s ease-in-out infinite alternate;
+}
+
+@keyframes drawStrand {
+    to { stroke-dashoffset: 0; }
+}
+
+.dna-node {
+    animation: pulseNode 2s ease-in-out infinite alternate;
+}
+
+@keyframes pulseNode {
+    from { r: 5; opacity: 0.7; }
+    to { r: 8; opacity: 1; }
+}
+
+.error-code {
+    font-size: 3.5rem;
+    font-weight: 900;
+    fill: var(--text);
+    font-family: 'Inter', sans-serif;
+    opacity: 0.15;
+}
+
+/* --- Content Styling --- */
+.error-content {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    z-index: 2;
+}
+
+.error-title {
+    font-size: clamp(2rem, 5vw, 2.8rem);
+    font-weight: 800;
+    color: var(--text);
+    line-height: 1.2;
+}
+
+.error-message {
+    font-size: 1.1rem;
+    color: var(--muted);
+    max-width: 480px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.error-action {
+    margin-top: 24px;
+}
+
+.btn-lg {
+    padding: 16px 48px;
+    font-size: 1.1rem;
+    border-radius: 50px;
+    transition: all var(--tf);
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) {
+    .error-visual {
+        width: 220px;
+        height: 220px;
+    }
+    
+    .error-code {
+        font-size: 2.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .error-container {
+        gap: 24px;
+    }
+    
+    .error-title {
+        font-size: 1.8rem;
+    }
+    
+    .error-message {
+        font-size: 1rem;
+    }
+}

@@ -1,0 +1,966 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="BioTechnology - Advancing Life Sciences through innovative research, clinical excellence, and groundbreaking biotech solutions for a healthier tomorrow." />
+    <meta name="keywords" content="biotechnology, life sciences, clinical trials, pharmaceutical, research, healthcare" />
+    <title>BioTechnology - Innovation in Life Sciences</title>
+
+    <!-- Favicon: DNA/Bio themed SVG in Warm Amber -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23D4A574'/%3E%3Cstop offset='100%25' style='stop-color:%23C17E3A'/%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx='50' cy='50' r='48' fill='url(%23g)'/%3E%3Cellipse cx='50' cy='30' rx='10' ry='16' fill='none' stroke='%23fff' stroke-width='3'/%3E%3Cellipse cx='50' cy='70' rx='10' ry='16' fill='none' stroke='%23fff' stroke-width='3'/%3E%3Cline x1='40' y1='38' x2='60' y2='38' stroke='%23fff' stroke-width='2.5'/%3E%3Cline x1='40' y1='50' x2='60' y2='50' stroke='%23fff' stroke-width='2.5'/%3E%3Cline x1='40' y1='62' x2='60' y2='62' stroke='%23fff' stroke-width='2.5'/%3E%3C/svg%3E" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+
+    <!-- ===================== LOADER ===================== -->
+    <div class="loader" id="loader" aria-hidden="true" role="status">
+      <div class="loader-dna">
+        <div class="dna-strand">
+          <span></span><span></span><span></span>
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+      <p class="loader-text">BioTechnology</p>
+    </div>
+
+    <!-- ===================== HEADER ===================== -->
+    <header class="header" id="header">
+      <div class="header-container">
+
+        <!-- Logo -->
+        <div class="logo-section">
+          <a href="index.html" class="logo-link" aria-label="BioTechnology Home">
+            <img src="./assets/Home1/Header/logo.webp" alt="BioTechnology Logo" class="logo" id="logo" />
+          </a>
+        </div>
+
+        <!-- Desktop Nav -->
+        <nav class="nav-desktop" id="navDesktop" aria-label="Main navigation">
+          <ul class="nav-list" role="list">
+            <li><a href="index.html" class="nav-link active-nav">Home</a></li>
+            <li><a href="./pages/about.html" class="nav-link">About Us</a></li>
+            <li><a href="./pages/services.html" class="nav-link">Services</a></li>
+            <li><a href="./pages/blog.html" class="nav-link">Blog</a></li>
+            <li><a href="./pages/contact.html" class="nav-link">Contact</a></li>
+            <li><a href="./pages/signup.html" class="nav-link nav-signup">Sign Up</a></li>
+            <li><a href="./pages/login.html" class="nav-link nav-login">Login</a></li>
+          </ul>
+        </nav>
+
+        <!-- Header Actions -->
+        <div class="header-actions">
+          <!-- Theme Toggle -->
+          <button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark theme" title="Toggle Theme">
+            <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+            <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+          </button>
+
+          <!-- Hamburger Toggle -->
+          <button class="hamburger-toggle" id="hamburgerToggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="hamburgerMenu">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- ===================== HAMBURGER OVERLAY ===================== -->
+    <div class="hamburger-overlay" id="hamburgerOverlay" aria-hidden="true"></div>
+    <div class="hamburger-menu" id="hamburgerMenu" role="dialog" aria-modal="true" aria-label="Navigation menu">
+      <button class="hamburger-close" id="hamburgerClose" aria-label="Close navigation menu">&#x2715;</button>
+      <nav class="hamburger-nav" aria-label="Mobile navigation">
+        <ul class="hamburger-list" role="list">
+          <li><a href="index.html" class="hamburger-link">Home</a></li>
+          <li><a href="./pages/about.html" class="hamburger-link">About Us</a></li>
+          <li><a href="./pages/services.html" class="hamburger-link">Services</a></li>
+          <li><a href="./pages/blog.html" class="hamburger-link">Blog</a></li>
+          <li><a href="./pages/contact.html" class="hamburger-link">Contact</a></li>
+          <li><a href="./pages/signup.html" class="hamburger-link hm-signup">Sign Up</a></li>
+          <li><a href="./pages/login.html" class="hamburger-link hm-login">Login</a></li>
+          <li class="hm-theme-row">
+            <button class="theme-toggle hm-theme-btn" id="hamburgerThemeToggle" aria-label="Toggle theme">
+              <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <circle cx="12" cy="12" r="5"></circle>
+                <line x1="12" y1="1" x2="12" y2="3"></line>
+                <line x1="12" y1="21" x2="12" y2="23"></line>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                <line x1="1" y1="12" x2="3" y2="12"></line>
+                <line x1="21" y1="12" x2="23" y2="12"></line>
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+              </svg>
+              <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+              </svg>
+              <span class="hm-theme-label">Switch Theme</span>
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+    <!-- ===================== SECTION 1: HERO ===================== -->
+    <section class="hero" id="home" aria-label="Hero Section">
+      <video autoplay muted loop playsinline class="hero-video" id="heroVideo" aria-hidden="true">
+        <source src="./assets/Home1/homeBg.mp4" type="video/mp4" />
+      </video>
+      <div class="hero-overlay" aria-hidden="true"></div>
+
+      <div class="hero-content">
+        <h1 class="hero-title">Pioneering the Future of <span class="hero-title-accent">BioTechnology</span></h1>
+        <h3 class="hero-subtitle">Revolutionary Solutions for a Healthier Tomorrow</h3>
+
+        <div class="hero-buttons">
+          <a href="./pages/error.html" class="btn btn-amber-solid" aria-label="Explore our work">Explore Our Research</a>
+          <a href="./pages/error.html" class="btn btn-secondary" aria-label="Get started with BioTechnology">Get Started Today</a>
+        </div>
+
+        <!-- Stats -->
+        <div class="hero-stats" aria-label="Key statistics">
+          <div class="stat-box" id="stat1">
+            <div class="stat-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+              </svg>
+            </div>
+            <div class="stat-number"><span class="countup" data-target="15000" aria-label="15000 patients helped">0</span>+</div>
+            <p class="stat-label">Patients Helped</p>
+          </div>
+
+          <div class="stat-box" id="stat2">
+            <div class="stat-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2V9M9 21H5a2 2 0 0 1-2-2V9m0 0h18"></path>
+              </svg>
+            </div>
+            <div class="stat-number"><span class="countup" data-target="450" aria-label="450 research projects">0</span>+</div>
+            <p class="stat-label">Research Projects</p>
+          </div>
+
+          <div class="stat-box" id="stat3">
+            <div class="stat-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+                <polyline points="10 9 9 9 8 9"></polyline>
+              </svg>
+            </div>
+            <div class="stat-number"><span class="countup" data-target="320" aria-label="320 publications">0</span>+</div>
+            <p class="stat-label">Publications</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== SECTION 2: SCROLLING FEATURES (LEFT→RIGHT) ===================== -->
+    <section class="marquee-section fade-section" id="marqueeSection" aria-label="Why Choose BioTechnology">
+      <div class="section-container">
+        <h1 class="section-title">Why BioTechnology Leads the Industry</h1>
+        <p class="section-description">
+          From evidence-based breakthroughs to patient-first ethics — here's what sets us apart in the global biotech landscape. Each pillar of our work reflects decades of scientific rigor and compassionate care.
+        </p>
+      </div>
+
+      <div class="marquee-wrapper" aria-label="Scrolling features list">
+        <div class="marquee-track" id="marqueeTrack">
+          <!-- Repeated items for seamless loop -->
+          <div class="marquee-item">
+            <div class="marquee-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2V9M9 21H5a2 2 0 0 1-2-2V9m0 0h18"></path></svg>
+            </div>
+            <h3>Evidence-Based Research</h3>
+          </div>
+          <div class="marquee-item">
+            <div class="marquee-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            </div>
+            <h3>Regulatory Compliance</h3>
+          </div>
+          <div class="marquee-item">
+            <div class="marquee-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72m2.54-15.38c-3.72 4.35-8.94 5.66-16.88 5.85m19.5 1.9c-3.5-.93-6.63-.82-8.94 0-2.58.92-5.01 2.86-7.44 6.32"></path></svg>
+            </div>
+            <h3>Global Partnerships</h3>
+          </div>
+          <div class="marquee-item">
+            <div class="marquee-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+            </div>
+            <h3>AI-Powered Analytics</h3>
+          </div>
+          <div class="marquee-item">
+            <div class="marquee-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+            </div>
+            <h3>Expert Clinical Teams</h3>
+          </div>
+          <div class="marquee-item">
+            <div class="marquee-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"></path></svg>
+            </div>
+            <h3>Innovative Diagnostics</h3>
+          </div>
+          <div class="marquee-item">
+            <div class="marquee-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"></path></svg>
+            </div>
+            <h3>ISO 9001 Certified Quality</h3>
+          </div>
+          <div class="marquee-item">
+            <div class="marquee-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
+            </div>
+            <h3>Patient-First Ethics</h3>
+          </div>
+          <!-- Duplicate for seamless scroll -->
+          <div class="marquee-item">
+            <div class="marquee-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2V9M9 21H5a2 2 0 0 1-2-2V9m0 0h18"></path></svg>
+            </div>
+            <h3>Evidence-Based Research</h3>
+          </div>
+          <div class="marquee-item">
+            <div class="marquee-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            </div>
+            <h3>Regulatory Compliance</h3>
+          </div>
+          <div class="marquee-item">
+            <div class="marquee-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72m2.54-15.38c-3.72 4.35-8.94 5.66-16.88 5.85m19.5 1.9c-3.5-.93-6.63-.82-8.94 0-2.58.92-5.01 2.86-7.44 6.32"></path></svg>
+            </div>
+            <h3>Global Partnerships</h3>
+          </div>
+          <div class="marquee-item">
+            <div class="marquee-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+            </div>
+            <h3>AI-Powered Analytics</h3>
+          </div>
+          <div class="marquee-item">
+            <div class="marquee-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg>
+            </div>
+            <h3>Expert Clinical Teams</h3>
+          </div>
+          <div class="marquee-item">
+            <div class="marquee-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"></path></svg>
+            </div>
+            <h3>Innovative Diagnostics</h3>
+          </div>
+          <div class="marquee-item">
+            <div class="marquee-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"></path></svg>
+            </div>
+            <h3>ISO 9001 Certified Quality</h3>
+          </div>
+          <div class="marquee-item">
+            <div class="marquee-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
+            </div>
+            <h3>Patient-First Ethics</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== SECTION 3: FEATURES WITH IMAGES ===================== -->
+    <section class="features-section fade-section" id="featuresSection" aria-label="Featured Services">
+      <div class="section-container">
+        <h1 class="section-title">Our Featured Solutions</h1>
+        <p class="section-description">
+          Explore our comprehensive suite of biotech services — each designed to push the boundaries of what's possible in healthcare and life sciences. Hover over any card to discover more.
+        </p>
+
+        <div class="features-grid">
+
+          <div class="feat-card fade-in" aria-label="Clinical Trials Management">
+            <div class="feat-img-wrap">
+              <img src="./assets/Home1/Grid/1.webp" alt="Clinical Trials Management" class="feat-img" onerror="this.src='./assets/Home1/Header/logo.webp'" />
+              <div class="feat-overlay">
+                <p class="feat-overlay-para">
+                  From Phase I to Phase IV, our end-to-end clinical trial management ensures rigorous data integrity, regulatory compliance, and accelerated timelines — giving your research the precision it deserves.
+                </p>
+                <div class="feat-overlay-btns">
+                  <a href="./pages/error.html" class="btn btn-amber-solid">Learn More</a>
+                  <a href="./pages/error.html" class="btn btn-amber-outline">Start Trial</a>
+                </div>
+              </div>
+              <h3 class="feat-default-title">Clinical Trials Management</h3>
+            </div>
+            <div class="feat-body">
+              <h4 class="feat-body-title">Clinical Trials Management</h4>
+              <p class="feat-body-para">Comprehensive management from conception to completion with full regulatory support and real-time monitoring.</p>
+              <a href="./pages/error.html" class="btn btn-amber-solid btn-sm">View Details</a>
+            </div>
+          </div>
+
+          <div class="feat-card fade-in" aria-label="Laboratory Testing">
+            <div class="feat-img-wrap">
+              <img src="./assets/Home1/Grid/2.webp" alt="Laboratory Testing" class="feat-img" onerror="this.src='./assets/Home1/Header/logo.webp'" />
+              <div class="feat-overlay">
+                <p class="feat-overlay-para">
+                  State-of-the-art laboratory facilities equipped with next-generation diagnostic technology. We process thousands of samples daily with unmatched accuracy and certified precision.
+                </p>
+                <div class="feat-overlay-btns">
+                  <a href="./pages/error.html" class="btn btn-amber-solid">Learn More</a>
+                  <a href="./pages/error.html" class="btn btn-amber-outline">Request Test</a>
+                </div>
+              </div>
+              <h3 class="feat-default-title">Laboratory Testing</h3>
+            </div>
+            <div class="feat-body">
+              <h4 class="feat-body-title">Laboratory Testing</h4>
+              <p class="feat-body-para">Advanced diagnostic capabilities in our ISO-certified labs — trusted by 300+ healthcare institutions globally.</p>
+              <a href="./pages/error.html" class="btn btn-amber-solid btn-sm">View Details</a>
+            </div>
+          </div>
+
+          <div class="feat-card fade-in" aria-label="Pharmaceutical Development">
+            <div class="feat-img-wrap">
+              <img src="./assets/Home1/Grid/3.webp" alt="Pharmaceutical Development" class="feat-img" onerror="this.src='./assets/Home1/Header/logo.webp'" />
+              <div class="feat-overlay">
+                <p class="feat-overlay-para">
+                  End-to-end pharmaceutical development covering drug discovery, formulation science, and manufacturing support. We streamline your path from lab bench to commercial launch.
+                </p>
+                <div class="feat-overlay-btns">
+                  <a href="./pages/error.html" class="btn btn-amber-solid">Learn More</a>
+                  <a href="./pages/error.html" class="btn btn-amber-outline">Consult Now</a>
+                </div>
+              </div>
+              <h3 class="feat-default-title">Pharmaceutical Development</h3>
+            </div>
+            <div class="feat-body">
+              <h4 class="feat-body-title">Pharmaceutical Development</h4>
+              <p class="feat-body-para">From formulation science to large-scale manufacturing support — your molecule in safe, expert hands.</p>
+              <a href="./pages/error.html" class="btn btn-amber-solid btn-sm">View Details</a>
+            </div>
+          </div>
+
+          <div class="feat-card fade-in" aria-label="Research Partnerships">
+            <div class="feat-img-wrap">
+              <img src="./assets/Home1/Grid/4.webp" alt="Research Partnerships" class="feat-img" onerror="this.src='./assets/Home1/Header/logo.webp'" />
+              <div class="feat-overlay">
+                <p class="feat-overlay-para">
+                  Collaborate with our globally recognized research teams on transformative projects. We forge partnerships that bring together the brightest minds to accelerate breakthrough discoveries.
+                </p>
+                <div class="feat-overlay-btns">
+                  <a href="./pages/error.html" class="btn btn-amber-solid">Learn More</a>
+                  <a href="./pages/error.html" class="btn btn-amber-outline">Partner With Us</a>
+                </div>
+              </div>
+              <h3 class="feat-default-title">Research Partnerships</h3>
+            </div>
+            <div class="feat-body">
+              <h4 class="feat-body-title">Research Partnerships</h4>
+              <p class="feat-body-para">Forge alliances with our expert teams to co-develop innovations and accelerate scientific breakthroughs.</p>
+              <a href="./pages/error.html" class="btn btn-amber-solid btn-sm">View Details</a>
+            </div>
+          </div>
+
+          <div class="feat-card fade-in" aria-label="Regulatory Consulting">
+            <div class="feat-img-wrap">
+              <img src="./assets/Home1/Grid/5.webp" alt="Regulatory Consulting" class="feat-img" onerror="this.src='./assets/Home1/Header/logo.webp'" />
+              <div class="feat-overlay">
+                <p class="feat-overlay-para">
+                  Navigate complex FDA, EMA, and global regulatory landscapes with seasoned consultants. We ensure your products meet every compliance requirement swiftly and accurately.
+                </p>
+                <div class="feat-overlay-btns">
+                  <a href="./pages/error.html" class="btn btn-amber-solid">Learn More</a>
+                  <a href="./pages/error.html" class="btn btn-amber-outline">Get Advice</a>
+                </div>
+              </div>
+              <h3 class="feat-default-title">Regulatory Consulting</h3>
+            </div>
+            <div class="feat-body">
+              <h4 class="feat-body-title">Regulatory Consulting</h4>
+              <p class="feat-body-para">Expert guidance on FDA, EMA and global compliance pathways — shortening your time-to-market significantly.</p>
+              <a href="./pages/error.html" class="btn btn-amber-solid btn-sm">View Details</a>
+            </div>
+          </div>
+
+          <div class="feat-card fade-in" aria-label="Training and Education">
+            <div class="feat-img-wrap">
+              <img src="./assets/Home1/Grid/6.webp" alt="Training and Education" class="feat-img" onerror="this.src='./assets/Home1/Header/logo.webp'" />
+              <div class="feat-overlay">
+                <p class="feat-overlay-para">
+                  Empower your workforce with structured training programs built for healthcare professionals and research teams. Our curriculum blends scientific theory with practical, real-world application.
+                </p>
+                <div class="feat-overlay-btns">
+                  <a href="./pages/error.html" class="btn btn-amber-solid">Learn More</a>
+                  <a href="./pages/error.html" class="btn btn-amber-outline">Enroll Now</a>
+                </div>
+              </div>
+              <h3 class="feat-default-title">Training &amp; Education</h3>
+            </div>
+            <div class="feat-body">
+              <h4 class="feat-body-title">Training &amp; Education</h4>
+              <p class="feat-body-para">Comprehensive, accredited training programs designed to upskill healthcare professionals and research teams.</p>
+              <a href="./pages/error.html" class="btn btn-amber-solid btn-sm">View Details</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== SECTION 4: DEMO / FREE TRIAL / ELDER CHECKUP ===================== -->
+    <section class="trial-section fade-section" id="trialSection" aria-label="Try Our Services">
+      <div class="trial-content">
+        <div class="trial-text-area">
+          <h1 class="section-title left-align">Experience Our Solutions — Risk Free</h1>
+          <p class="section-description left-align">
+            We believe access to world-class healthcare and biotech innovation should be within everyone's reach. Whether you're a researcher, clinician, or a senior citizen seeking preventive care — we have a tailored offering for you.
+          </p>
+
+          <div class="offering-list">
+            <div class="offering-card fade-in" aria-label="Free Trial">
+              <div class="offering-card-icon" aria-hidden="true">🧪</div>
+              <div class="offering-card-body">
+                <h3 class="offering-card-title">Free Trial Access</h3>
+                <p class="offering-card-desc">
+                  Get 30 days of full access to our research platform, clinical analytics tools, and expert consultation — completely free. No credit card required.
+                </p>
+                <div class="offering-card-btns">
+                  <a href="./pages/error.html" class="btn btn-amber-solid">Start Free Trial</a>
+                  <a href="./pages/error.html" class="btn btn-ghost">Learn More</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="offering-card fade-in" aria-label="Live Demo">
+              <div class="offering-card-icon" aria-hidden="true">📊</div>
+              <div class="offering-card-body">
+                <h3 class="offering-card-title">Live Platform Demo</h3>
+                <p class="offering-card-desc">
+                  Schedule a personalized, 1-on-1 live demo with our product specialists. See exactly how BioTechnology's suite transforms your research workflow in real time.
+                </p>
+                <div class="offering-card-btns">
+                  <a href="./pages/error.html" class="btn btn-amber-solid">Schedule Demo</a>
+                  <a href="./pages/error.html" class="btn btn-ghost">View Features</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="offering-card fade-in" aria-label="Free Checkup for Elders">
+              <div class="offering-card-icon" aria-hidden="true">❤️</div>
+              <div class="offering-card-body">
+                <h3 class="offering-card-title">Free Health Checkup for Elders</h3>
+                <p class="offering-card-desc">
+                  Our commitment to community health — senior citizens (60+) receive complimentary comprehensive health screenings including blood panels, cardiac monitoring, and a specialist consultation.
+                </p>
+                <div class="offering-card-btns">
+                  <a href="./pages/error.html" class="btn btn-amber-solid">Book Checkup</a>
+                  <a href="./pages/error.html" class="btn btn-ghost">Eligibility Details</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="trial-video-col">
+          <div class="trial-video-frame" aria-label="BioTechnology platform preview video">
+            <video autoplay muted loop playsinline class="trial-video" id="trialVideo" aria-hidden="true">
+              <source src="./assets/Home1/homeBg2.mp4" type="video/mp4" />
+            </video>
+            <div class="trial-video-overlay" aria-hidden="true">
+              <div class="trial-video-badge">
+                <span>🔬</span>
+                <p>Live Platform Preview</p>
+              </div>
+            </div>
+          </div>
+          <div class="trial-trust-grid">
+            <div class="trust-card fade-in">
+              <div class="trust-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+              </div>
+              <div class="trust-info">
+                <strong>FDA</strong>
+                <span>Registered</span>
+              </div>
+            </div>
+            <div class="trust-card fade-in">
+              <div class="trust-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 8v4l3 3"></path></svg>
+              </div>
+              <div class="trust-info">
+                <strong>HIPAA</strong>
+                <span>Compliant</span>
+              </div>
+            </div>
+            <div class="trust-card fade-in">
+              <div class="trust-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+              </div>
+              <div class="trust-info">
+                <strong>ISO 9001</strong>
+                <span>Certified</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== SECTION 5: CONNECT / CONTACT ===================== -->
+    <section class="connect-section fade-section" id="connectSection" aria-label="Connect with Us">
+      <div class="section-container">
+        <span class="section-badge">Let's Collaborate</span>
+        <h1 class="section-title">Ready to Make an Impact?</h1>
+        <p class="section-description">
+          Whether you have a question, a partnership proposal, or are ready to take the next step — our team is here and eager to help. Reach out through any of the channels below and let's start something extraordinary.
+        </p>
+
+        <div class="connect-grid">
+          <a href="./pages/contact.html" class="connect-card fade-in" aria-label="Get in touch with our team">
+            <div class="connect-card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+            </div>
+            <div class="connect-card-body">
+              <h3 class="connect-card-title">Get In Touch</h3>
+              <p class="connect-card-text">Send us your inquiries, feedback, or support requests. Our response time is under 12 hours.</p>
+              <span class="connect-card-cta">Send Message <span aria-hidden="true">→</span></span>
+            </div>
+            <div class="connect-card-glow" aria-hidden="true"></div>
+          </a>
+
+          <a href="./pages/error.html" class="connect-card fade-in" aria-label="Schedule a consultation">
+            <div class="connect-card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+            </div>
+            <div class="connect-card-body">
+              <h3 class="connect-card-title">Schedule Consultation</h3>
+              <p class="connect-card-text">Book a 1-on-1 meeting with our domain experts tailored to your specific research or clinical needs.</p>
+              <span class="connect-card-cta">Book Now <span aria-hidden="true">→</span></span>
+            </div>
+            <div class="connect-card-glow" aria-hidden="true"></div>
+          </a>
+
+          <a href="./pages/error.html" class="connect-card fade-in" aria-label="Explore partnership opportunities">
+            <div class="connect-card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+            </div>
+            <div class="connect-card-body">
+              <h3 class="connect-card-title">Partnership Opportunities</h3>
+              <p class="connect-card-text">Explore strategic collaboration possibilities with institutions, universities, and biotech companies.</p>
+              <span class="connect-card-cta">Let's Partner <span aria-hidden="true">→</span></span>
+            </div>
+            <div class="connect-card-glow" aria-hidden="true"></div>
+          </a>
+
+          <a href="./pages/error.html" class="connect-card fade-in" aria-label="Career opportunities at BioTechnology">
+            <div class="connect-card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+            </div>
+            <div class="connect-card-body">
+              <h3 class="connect-card-title">Career Opportunities</h3>
+              <p class="connect-card-text">Join a world-class team of scientists, clinicians, and innovators. View open roles across all departments.</p>
+              <span class="connect-card-cta">View Careers <span aria-hidden="true">→</span></span>
+            </div>
+            <div class="connect-card-glow" aria-hidden="true"></div>
+          </a>
+        </div>
+
+        <!-- Extra CTA Banner -->
+        <div class="connect-banner fade-in">
+          <div class="connect-banner-text">
+            <h2>Have an urgent query?</h2>
+            <p>Our 24/7 helpline and live chat are always available for critical support needs.</p>
+          </div>
+          <div class="connect-banner-btns">
+            <a href="./pages/contact.html" class="btn btn-amber-solid">Contact Us Now</a>
+            <a href="./pages/error.html" class="btn btn-ghost">Live Chat</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== FOOTER ===================== -->
+    <footer class="footer" id="footer">
+      <div class="footer-container">
+
+        <!-- Col 1: Logo + Para -->
+        <div class="footer-col footer-col-brand">
+          <a href="index.html" class="footer-logo-link" aria-label="BioTechnology Home">
+            <img src="./assets/Home1/Header/logo.webp" alt="BioTechnology Logo" class="footer-logo" id="footerLogo" />
+          </a>
+          <p class="footer-brand-para">
+            BioTechnology is dedicated to advancing human health through innovative research, breakthrough therapies, and compassionate care. We believe every life deserves the best science can offer.
+          </p>
+        </div>
+
+        <!-- Col 2: Company -->
+        <div class="footer-col">
+          <h4 class="footer-col-heading">Company</h4>
+          <ul class="footer-col-links" role="list">
+            <li><a href="./pages/about.html" class="footer-link">About</a></li>
+            <li><a href="./pages/services.html" class="footer-link">Services</a></li>
+            <li><a href="./pages/contact.html" class="footer-link">Contact</a></li>
+            <li><a href="./pages/login.html" class="footer-link">Login</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Research -->
+        <div class="footer-col">
+          <h4 class="footer-col-heading">Research</h4>
+          <ul class="footer-col-links" role="list">
+            <li><a href="./pages/error.html" class="footer-link">Clinical Trials</a></li>
+            <li><a href="./pages/error.html" class="footer-link">Partnerships</a></li>
+            <li><a href="./pages/error.html" class="footer-link">Publications</a></li>
+            <li><a href="./pages/error.html" class="footer-link">Case Studies</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Newsletter + Social -->
+        <div class="footer-col">
+          <h4 class="footer-col-heading">Newsletter</h4>
+          <p class="footer-newsletter-desc">Stay updated with the latest research breakthroughs and BioTech innovations.</p>
+          <form class="footer-newsletter-form" id="newsletterForm" novalidate>
+            <div class="footer-newsletter-row">
+              <label for="newsletterEmail" class="sr-only">Email address</label>
+              <input type="email" id="newsletterEmail" name="email" placeholder="Your email address" class="footer-newsletter-input" autocomplete="email" required />
+              <button type="submit" class="footer-newsletter-btn" aria-label="Subscribe to newsletter">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </button>
+            </div>
+            <p class="footer-newsletter-err" id="newsletterErr" role="alert" aria-live="polite"></p>
+          </form>
+
+          <div class="footer-social" aria-label="Social media links">
+            <a href="./pages/error.html" class="social-btn" aria-label="Follow us on Facebook" title="Facebook">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+            </a>
+            <a href="./pages/error.html" class="social-btn" aria-label="Follow us on Twitter/X" title="Twitter/X">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 4l16 16m0-16L4 20" stroke="currentColor" stroke-width="2.5" fill="none"></path></svg>
+            </a>
+            <a href="./pages/error.html" class="social-btn" aria-label="Follow us on LinkedIn" title="LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"></path><circle cx="4" cy="4" r="2"></circle></svg>
+            </a>
+            <a href="./pages/error.html" class="social-btn" aria-label="Follow us on Instagram" title="Instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mini Footer / Copyright Strip -->
+      <div class="footer-bottom">
+        <div class="footer-bottom-inner">
+          <p class="footer-copy">&copy; 2025 BioTechnology Inc. All rights reserved. Advancing Human Health Worldwide.</p>
+          <nav class="footer-bottom-links" aria-label="Legal links">
+            <a href="./pages/error.html" class="footer-bottom-link">Privacy Policy</a>
+            <span aria-hidden="true">·</span>
+            <a href="./pages/error.html" class="footer-bottom-link">Terms of Service</a>
+            <span aria-hidden="true">·</span>
+            <a href="./pages/error.html" class="footer-bottom-link">Cookie Policy</a>
+            <span aria-hidden="true">·</span>
+            <a href="./pages/error.html" class="footer-bottom-link">Sitemap</a>
+          </nav>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ===================== SCROLL TO TOP ===================== -->
+    <button class="scroll-to-top" id="scrollToTop" aria-label="Scroll to top of page" title="Scroll to top">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+        <polyline points="18 15 12 9 6 15"></polyline>
+      </svg>
+    </button>
+
+    <!-- ===================== SCRIPTS ===================== -->
+    <script>
+      /* ====================================================
+         1. LOADER
+      ==================================================== */
+      (function () {
+        var loader = document.getElementById('loader');
+
+        function hideLoader() {
+          loader.classList.add('fade-out');
+          setTimeout(function () {
+            loader.style.display = 'none';
+            loader.setAttribute('aria-hidden', 'true');
+          }, 600);
+        }
+
+        window.addEventListener('load', function () {
+          setTimeout(hideLoader, 600);
+        });
+
+        // Handle bfcache (back/forward navigation on GitHub Pages etc.)
+        window.addEventListener('pageshow', function (e) {
+          if (e.persisted) {
+            loader.style.display = 'none';
+            loader.setAttribute('aria-hidden', 'true');
+          }
+        });
+      })();
+
+      /* ====================================================
+         2. THEME TOGGLE
+      ==================================================== */
+      (function () {
+        var html = document.documentElement;
+        var saved = localStorage.getItem('bt-theme') || 'light';
+        html.setAttribute('data-theme', saved);
+
+        document.querySelectorAll('.theme-toggle').forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            var curr = html.getAttribute('data-theme');
+            var next = curr === 'light' ? 'dark' : 'light';
+            html.setAttribute('data-theme', next);
+            localStorage.setItem('bt-theme', next);
+          });
+        });
+      })();
+
+      /* ====================================================
+         3. HAMBURGER MENU
+      ==================================================== */
+      (function () {
+        var toggle   = document.getElementById('hamburgerToggle');
+        var menu     = document.getElementById('hamburgerMenu');
+        var overlay  = document.getElementById('hamburgerOverlay');
+        var closeBtn = document.getElementById('hamburgerClose');
+
+        function openMenu() {
+          menu.classList.add('open');
+          overlay.classList.add('open');
+          toggle.setAttribute('aria-expanded', 'true');
+          document.body.style.overflow = 'hidden';
+        }
+
+        function closeMenu() {
+          menu.classList.remove('open');
+          overlay.classList.remove('open');
+          toggle.setAttribute('aria-expanded', 'false');
+          document.body.style.overflow = '';
+        }
+
+        toggle.addEventListener('click', function (e) {
+          e.stopPropagation();
+          menu.classList.contains('open') ? closeMenu() : openMenu();
+        });
+
+        closeBtn.addEventListener('click', closeMenu);
+        overlay.addEventListener('click', closeMenu);
+
+        // Close on hamburger link click
+        menu.querySelectorAll('.hamburger-link').forEach(function (link) {
+          link.addEventListener('click', closeMenu);
+        });
+
+        // Close on Escape key
+        document.addEventListener('keydown', function (e) {
+          if (e.key === 'Escape' && menu.classList.contains('open')) closeMenu();
+        });
+      })();
+
+      /* ====================================================
+         4. HEADER SCROLL EFFECT
+      ==================================================== */
+      (function () {
+        var header = document.getElementById('header');
+        window.addEventListener('scroll', function () {
+          if (window.scrollY > 50) {
+            header.classList.add('scrolled');
+          } else {
+            header.classList.remove('scrolled');
+          }
+        });
+      })();
+
+      /* ====================================================
+         5. SCROLL TO TOP
+      ==================================================== */
+      (function () {
+        var btn = document.getElementById('scrollToTop');
+        window.addEventListener('scroll', function () {
+          btn.classList.toggle('visible', window.scrollY > 400);
+        });
+        btn.addEventListener('click', function () {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      })();
+
+      /* ====================================================
+         6. FADE-IN ON SCROLL (Intersection Observer)
+      ==================================================== */
+      (function () {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              io.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+
+        document.querySelectorAll('.fade-in').forEach(function (el) {
+          io.observe(el);
+        });
+
+        // Section-level fades
+        var sio = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('section-visible');
+              sio.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.08 });
+
+        document.querySelectorAll('.fade-section').forEach(function (el) {
+          sio.observe(el);
+        });
+      })();
+
+      /* ====================================================
+         7. COUNTUP ANIMATION
+      ==================================================== */
+      (function () {
+        var cio = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              var el = entry.target;
+              if (el.dataset.counted) return;
+              el.dataset.counted = '1';
+              var target = parseInt(el.getAttribute('data-target'), 10);
+              var duration = 1800;
+              var start = null;
+              function step(ts) {
+                if (!start) start = ts;
+                var progress = Math.min((ts - start) / duration, 1);
+                var eased = 1 - Math.pow(1 - progress, 3);
+                el.textContent = Math.floor(eased * target).toLocaleString();
+                if (progress < 1) requestAnimationFrame(step);
+                else el.textContent = target.toLocaleString();
+              }
+              requestAnimationFrame(step);
+              cio.unobserve(el);
+            }
+          });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('.countup').forEach(function (el) {
+          cio.observe(el);
+        });
+      })();
+
+      /* ====================================================
+         8. MARQUEE PAUSE ON HOVER
+      ==================================================== */
+      (function () {
+        var track = document.getElementById('marqueeTrack');
+        if (!track) return;
+        track.addEventListener('mouseenter', function () {
+          track.style.animationPlayState = 'paused';
+        });
+        track.addEventListener('mouseleave', function () {
+          track.style.animationPlayState = 'running';
+        });
+        // Touch support
+        track.addEventListener('touchstart', function () {
+          track.style.animationPlayState = 'paused';
+        }, { passive: true });
+        track.addEventListener('touchend', function () {
+          track.style.animationPlayState = 'running';
+        }, { passive: true });
+      })();
+
+      /* ====================================================
+         9. NEWSLETTER FORM VALIDATION
+      ==================================================== */
+      (function () {
+        var form = document.getElementById('newsletterForm');
+        var emailInput = document.getElementById('newsletterEmail');
+        var errEl = document.getElementById('newsletterErr');
+
+        if (!form) return;
+
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+          var val = emailInput.value.trim();
+          var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+          if (!val) {
+            showErr('Please enter your email address.');
+            return;
+          }
+          if (!emailRegex.test(val)) {
+            showErr('Please enter a valid email address (e.g. name@domain.com).');
+            return;
+          }
+          errEl.textContent = '';
+          errEl.style.color = '';
+          window.location.href = './pages/error.html';
+        });
+
+        function showErr(msg) {
+          errEl.textContent = msg;
+          errEl.style.color = '#e74c3c';
+          emailInput.focus();
+        }
+
+        // Clear error on input
+        emailInput.addEventListener('input', function () {
+          errEl.textContent = '';
+        });
+      })();
+
+      /* ====================================================
+         10. PAGE LEAVE LOADER (on same-origin nav link clicks)
+      ==================================================== */
+      (function () {
+        document.querySelectorAll('a[href]').forEach(function (a) {
+          var href = a.getAttribute('href');
+          if (
+            href && !href.startsWith('#') && !href.startsWith('mailto') &&
+            !href.startsWith('tel') && !a.getAttribute('target')
+          ) {
+            a.addEventListener('click', function (e) {
+              var loader = document.getElementById('loader');
+              if (loader) {
+                loader.style.display = 'flex';
+                loader.style.opacity = '1';
+                loader.classList.remove('fade-out');
+              }
+            });
+          }
+        });
+      })();
+    </script>
+  </body>
+</html>
