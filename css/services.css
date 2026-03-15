@@ -1,0 +1,774 @@
+/* ============================================================
+   GLOBAL VARIABLES & IMPORTS (Specific to Services)
+============================================================ */
+:root {
+  --srv-hero-bg: #0f172a;
+  --srv-grid-bg: var(--bg-primary);
+  --srv-card-bg: var(--bg-secondary);
+  --srv-card-text: var(--text-primary);
+  --srv-card-desc: var(--text-secondary);
+  --srv-border: var(--border-color);
+  
+  --price-bg: var(--bg-secondary);
+  --price-badge: var(--amber);
+  --faq-bg: var(--bg-secondary);
+  --faq-border: var(--border-color);
+}
+
+[data-theme="dark"] {
+  --srv-hero-bg: #0f172a;
+  --srv-grid-bg: var(--bg-primary);
+  --srv-card-bg: var(--bg-secondary);
+  --srv-card-text: var(--text-primary);
+  --srv-card-desc: var(--text-secondary);
+  --srv-border: var(--border-color);
+  
+  --price-bg: var(--bg-secondary);
+  --faq-bg: var(--bg-secondary);
+  --faq-border: var(--border-color);
+}
+
+/* Base fade-in defaults */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.delay-1 { transition-delay: 0.2s; }
+.delay-2 { transition-delay: 0.4s; }
+
+.fade-section {
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+.fade-section.section-visible {
+  opacity: 1;
+}
+
+/* Common Section Layout */
+.section-container {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+  text-align: center;
+}
+.section-description {
+  font-size: 1.125rem;
+  color: var(--text-secondary);
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 3rem auto;
+  line-height: 1.6;
+}
+
+/* ============================================================
+   SECTION 1: HERO VIDEO
+============================================================ */
+.services-hero {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: var(--hh);
+  overflow: hidden;
+  background: var(--srv-hero-bg);
+}
+.hero-bg-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  z-index: 0;
+}
+.hero-video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(15, 23, 42, 0.7); /* Dark overlay to hide low res & boost text readability */
+  z-index: 1;
+}
+.services-hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 800px;
+  padding: 0 1.5rem;
+}
+.hero-title-slider {
+  position: relative;
+  height: 140px; /* Base height for desktop */
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+}
+
+/* Ensure price-features text wraps safely */
+.price-features li {
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.services-hero-title {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  color: #ffffff;
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+  opacity: 0;
+  transform: translateX(50px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  pointer-events: none;
+}
+.services-hero-title.active {
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
+}
+.services-hero-para {
+  color: #e2e8f0;
+  font-size: 1.25rem;
+  line-height: 1.6;
+  margin-bottom: 2.5rem;
+  font-weight: 400;
+  text-shadow: 0 1px 5px rgba(0,0,0,0.5);
+}
+.services-hero-btns {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+}
+.services-hero-btns .btn {
+  padding: 1rem 2rem;
+  font-size: 1.125rem;
+}
+.services-hero-btns .btn-secondary {
+  background: transparent;
+  color: #fff;
+  border: 2px solid #fff;
+}
+.services-hero-btns .btn-secondary:hover {
+  background: rgba(255,255,255,0.1);
+  transform: translateY(-3px);
+}
+
+/* ============================================================
+   SECTION 2: SERVICES GRID (Filterable)
+============================================================ */
+.services-grid-section {
+  padding: 6rem 0;
+  background: var(--srv-grid-bg);
+}
+.filter-controls {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+.filter-btn {
+  background: var(--srv-card-bg);
+  border: 1px solid var(--amber);
+  color: var(--srv-card-text);
+  padding: 0.75rem 1.5rem;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.filter-btn:hover {
+  border-color: var(--amber);
+  color: var(--amber);
+}
+.filter-btn.active {
+  background: var(--amber);
+  color: #1c1917;
+  border-color: var(--amber);
+}
+
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2rem;
+}
+.service-card {
+  position: relative;
+  background: var(--srv-card-bg);
+  border: 1px solid var(--amber);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  box-shadow: var(--sh-sm);
+  display: block; /* Overridden by JS for filter */
+}
+.srv-img-wrap {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+}
+.srv-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+.srv-overlay {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.1) 100%);
+  opacity: 0.6;
+  transition: opacity 0.4s ease;
+}
+.srv-content-unhovered {
+  padding: 1.5rem;
+  transition: opacity 0.4s ease;
+}
+.srv-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--srv-card-text);
+  margin-bottom: 0.5rem;
+}
+.srv-short {
+  font-size: 0.95rem;
+  color: var(--srv-card-desc);
+  line-height: 1.5;
+}
+
+/* Hovered State overlay details */
+.srv-content-hovered {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(15, 23, 42, 0.92);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  text-align: center;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: all 0.4s ease;
+  backdrop-filter: blur(4px);
+}
+.srv-desc {
+  color: #f8fafc;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+.srv-btns {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* Interactivity */
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--sh-md);
+  border-color: var(--amber);
+}
+.service-card:hover .srv-img {
+  transform: scale(1.05);
+}
+.service-card:hover .srv-overlay {
+  opacity: 1;
+}
+.service-card:hover .srv-content-hovered {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* ============================================================
+   SECTION 3: PRICING TABLE
+============================================================ */
+.pricing-section {
+  padding: 6rem 0;
+  background: var(--bg-primary);
+}
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  align-items: center; /* helps featured pop out if we change height */
+}
+.price-box {
+  background: var(--price-bg);
+  border: 1px solid var(--amber);
+  border-radius: 16px;
+  padding: 3rem 2rem;
+  text-align: left;
+  position: relative;
+  transition: all 0.4s ease;
+  box-shadow: var(--sh-sm);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.price-box:hover {
+  border-color: var(--amber);
+  transform: translateY(-10px);
+  box-shadow: var(--sh-lg);
+}
+.price-tier {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+.price-amt {
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+.price-amt span {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+.price-desc {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-bottom: 2rem;
+  min-height: 45px;
+}
+.price-features {
+  list-style: none;
+  margin-bottom: 2.5rem;
+  flex-grow: 1;
+}
+.price-features li {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+.price-features li span {
+  color: var(--amber);
+  font-weight: bold;
+}
+.price-features li.disabled {
+  color: var(--text-muted);
+  text-decoration: line-through;
+}
+.price-features li.disabled span {
+  color: var(--text-muted);
+}
+.price-box .btn {
+  width: 100%;
+  justify-content: center;
+}
+
+/* Featured Price */
+.price-box.featured {
+  border: 2px solid var(--amber);
+  background: var(--bg-primary);
+  padding: 4rem 2rem;
+  z-index: 1;
+}
+.price-badge {
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--amber);
+  color: #1c1917;
+  padding: 0.5rem 1.5rem;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  box-shadow: 0 4px 10px rgba(212, 165, 116, 0.4);
+}
+
+/* ============================================================
+   SECTION 4: CAREERS
+============================================================ */
+.careers-section {
+  padding: 6rem 0;
+  background: var(--bg-secondary);
+}
+.career-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+.career-content .section-title {
+  text-align: left;
+}
+.career-para {
+  font-size: 1.125rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+.career-stats {
+  display: flex;
+  gap: 3rem;
+  margin: 2.5rem 0;
+  padding: 2rem;
+  background: var(--bg-primary);
+  border: 1px solid var(--srv-border);
+  border-radius: 12px;
+}
+.countup-box h2 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--amber);
+  margin-bottom: 0.5rem;
+}
+.countup-box p {
+  font-size: 1rem;
+  color: var(--text-primary);
+  font-weight: 600;
+}
+.career-btns {
+  display: flex;
+  gap: 1rem;
+}
+
+.career-gallery {
+  position: relative;
+  height: 600px;
+  width: 100%;
+  max-width: 550px;
+  margin: 0 auto;
+}
+.c-img {
+  position: absolute;
+  border-radius: 16px;
+  box-shadow: var(--sh-lg);
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+.c-img:hover {
+  transform: translateY(-10px);
+  z-index: 10;
+}
+/* Main big image */
+.c-img-main {
+  width: 70%;
+  height: 480px;
+  top: 60px;
+  right: 0;
+  z-index: 2;
+  border: 8px solid var(--bg-secondary);
+}
+/* sub img 1 top left */
+.c-img-sub1 {
+  width: 50%;
+  height: 300px;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+/* sub img 2 bottom left */
+.c-img-sub2 {
+  width: 45%;
+  height: 250px;
+  bottom: 0;
+  left: 10%;
+  z-index: 3;
+  border: 6px solid var(--bg-secondary);
+}
+
+/* ============================================================
+   SECTION 5: FAQS ACCORDION
+============================================================ */
+.faq-section {
+  padding: 6rem 0;
+  background: var(--bg-primary);
+}
+.faq-accordion {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.faq-item {
+  background: var(--faq-bg);
+  border: 1px solid var(--faq-border);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: border-color 0.3s ease;
+}
+.faq-item:focus-within {
+  border-color: var(--amber);
+}
+.faq-trigger {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  color: var(--text-primary);
+  transition: background 0.3s ease;
+}
+.faq-trigger:hover {
+  background: var(--bg-primary);
+}
+.faq-question {
+  font-size: 1.125rem;
+  font-weight: 600;
+  flex: 1;
+  padding-right: 1.5rem;
+}
+.faq-icon {
+  font-size: 1.8rem;
+  font-weight: 300;
+  color: var(--amber);
+  transition: transform 0.3s ease;
+  line-height: 1;
+}
+.faq-trigger[aria-expanded="true"] .faq-icon {
+  transform: rotate(180deg);
+}
+
+.faq-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease-out;
+  background: var(--faq-bg);
+}
+.faq-text {
+  padding: 0 2rem 1.5rem 2rem;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+/* ============================================================
+   MEDIA QUERIES
+============================================================ */
+
+/* ---------- 1024px ---------- */
+@media screen and (max-width: 1024px) {
+  /* Common Adjustments */
+  .section-title { font-size: 2.25rem; }
+  .section-container { padding: 0 1.5rem; }
+
+  /* Hero */
+  .services-hero-title { font-size: 3rem; }
+  .services-hero-para { font-size: 1.15rem; }
+
+  /* Pricing */
+  .pricing-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .price-box.featured {
+    padding: 3rem 2rem;
+    order: -1; /* Push to front or keep as normal? Normally popular is in middle, but let's just let it flow naturally or be span 2 */
+    grid-column: span 2; 
+  }
+
+  /* Careers */
+  .career-layout {
+    gap: 2rem;
+  }
+  .career-gallery {
+    height: 500px;
+  }
+  .c-img-main { height: 400px; }
+  .c-img-sub1 { height: 250px; }
+  .c-img-sub2 { height: 200px; left: 0; }
+}
+
+/* ---------- 768px ---------- */
+@media screen and (max-width: 768px) {
+  /* Common */
+  .section-title { font-size: 2rem; }
+  .section-description { font-size: 1rem; margin-bottom: 2rem; }
+  .section-container { padding: 0 1.25rem; }
+
+  /* Hero */
+  .services-hero { min-height: 80vh; padding-top: calc(var(--hh) + 4rem); padding-bottom: 4rem; }
+  .hero-title-slider { height: 100px; margin-bottom: 1.5rem; }
+  .services-hero-title { font-size: 2.5rem; }
+  .services-hero-para { font-size: 1.05rem; }
+  .services-hero-btns { flex-direction: column; align-items: stretch; gap: 1rem; }
+
+  /* Grid */
+  .filter-controls { flex-direction: column; align-items: center; }
+  .filter-btn { width: 100%; max-width: 300px; text-align: center; }
+  .service-grid { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); }
+
+  /* Pricing */
+  .pricing-grid { grid-template-columns: 1fr; }
+  .price-box.featured { grid-column: auto; }
+
+  /* Careers */
+  .career-layout { grid-template-columns: 1fr; }
+  .career-content .section-title { text-align: center; }
+  .career-stats { flex-direction: column; gap: 1.5rem; text-align: center; }
+  .career-btns { flex-direction: column; align-items: stretch; }
+  .career-btns .btn { width: 100%; justify-content: center; text-align: center; }
+  .career-gallery { height: 450px; margin-top: 2rem;}
+  .c-img-main { width: 80%; height: 350px; top: 50px; right: 10%; }
+  .c-img-sub1 { width: 60%; left: 0; }
+  .c-img-sub2 { width: 50%; right: 0; left: auto; bottom: auto; top: 250px; }
+
+  /* FAQ */
+  .faq-trigger { padding: 1.25rem 1rem; }
+  .faq-question { font-size: 1rem; }
+  .faq-text { padding: 0 1rem 1.25rem 1rem; }
+}
+
+/* ---------- 425.6px ---------- */
+@media screen and (max-width: 425.6px) {
+  /* Common */
+  .section-container { padding: 0 1rem; }
+  .section-title { font-size: 1.5rem; }
+  .section-description { font-size: 0.95rem; margin-bottom: 1.5rem; }
+
+  /* Hero — taller slider at this width to fit 2-line titles */
+  .hero-title-slider {
+    height: 105px;
+    min-height: unset;
+    overflow: hidden;
+  }
+  .services-hero-title {
+    font-size: 1.9rem;
+    white-space: normal;
+    word-break: break-word;
+    line-height: 1;
+  }
+  /* Hero buttons — stack and fill width */
+  .services-hero-btns {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.875rem;
+  }
+  .services-hero-btns .btn {
+    padding: 0.875rem 1.25rem;
+    font-size: 1rem;
+    text-align: center;
+    justify-content: center;
+    width: 100%;
+  }
+
+  /* Filter buttons — contained width */
+  .filter-controls { gap: 0.75rem; }
+  .filter-btn {
+    width: 100%;
+    max-width: 100%;
+    font-size: 0.9rem;
+    padding: 0.65rem 1rem;
+    text-align: center;
+  }
+
+  /* Grid */
+  .service-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+
+  /* Price */
+  .price-box { padding: 1.75rem 1.25rem; }
+  .price-box.featured { padding: 2.25rem 1.25rem; }
+  .price-amt { font-size: 2.25rem; }
+  .price-tier { font-size: 1.3rem; }
+  .price-features li { font-size: 0.875rem; gap: 0.5rem; }
+
+  /* Careers — stack buttons */
+  .career-btns {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .career-btns .btn {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+  .career-stats { padding: 1.25rem; gap: 1rem; }
+  .countup-box h2 { font-size: 2rem; }
+  .career-gallery { height: 340px; }
+  .c-img-main { height: 270px; width: 90%; right: 5%; }
+  .c-img-sub1 { height: 175px; width: 65%; }
+  .c-img-sub2 { display: none; }
+
+  /* FAQ */
+  .faq-trigger { padding: 1rem 0.875rem; gap: 0.5rem; }
+  .faq-question { font-size: 0.95rem; padding-right: 0.75rem; }
+  .faq-icon { font-size: 1.5rem; flex-shrink: 0; }
+  .faq-text { padding: 0 0.875rem 1rem 0.875rem; font-size: 0.9rem; }
+}
+
+/* ---------- 375.2px ---------- */
+@media screen and (max-width: 375.2px) {
+  /* Common */
+  .section-container { padding: 0 0.875rem; }
+  .section-title { font-size: 1.5rem; }
+  .section-description { font-size: 0.9rem; }
+
+  /* Hero — tighter slider */
+  .hero-title-slider {
+    height: 90px;
+    min-height: unset;
+    overflow: hidden;
+  }
+  .services-hero-title { font-size: 1.65rem; line-height: 1; white-space: normal; word-break: break-word; }
+  .services-hero-para { font-size: 0.9rem; }
+  .services-hero-btns .btn { font-size: 0.9rem; padding: 0.8rem 1rem; }
+
+  /* Filter */
+  .filter-btn { font-size: 0.875rem; padding: 0.6rem 0.875rem; }
+
+  /* Pricing */
+  .price-box { padding: 1.5rem 1rem; }
+  .price-box.featured { padding: 2rem 1rem; }
+  .price-amt { font-size: 2rem; }
+  .price-tier { font-size: 1.2rem; }
+  .price-desc { font-size: 0.875rem; }
+  .price-features li { font-size: 0.85rem; }
+
+  /* Careers */
+  .career-gallery { height: 290px; }
+  .c-img-main { height: 230px; }
+  .c-img-sub1 { height: 145px; width: 60%; }
+  .career-stats { padding: 1rem; }
+  .countup-box h2 { font-size: 1.75rem; }
+  .countup-box p { font-size: 0.9rem; }
+
+  /* FAQ */
+  .faq-trigger { padding: 0.875rem 0.75rem; }
+  .faq-question { font-size: 0.9rem; padding-right: 0.5rem; }
+  .faq-icon { font-size: 1.35rem; }
+  .faq-text { padding: 0 0.75rem 0.875rem 0.75rem; font-size: 0.875rem; }
+}

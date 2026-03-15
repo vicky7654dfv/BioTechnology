@@ -1,0 +1,821 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Services of BioTechnology - Discover our comprehensive suite of life sciences solutions." />
+    <title>Services - BioTechnology</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23D4A574'/%3E%3Cstop offset='100%25' style='stop-color:%23C17E3A'/%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx='50' cy='50' r='48' fill='url(%23g)'/%3E%3Cellipse cx='50' cy='30' rx='10' ry='16' fill='none' stroke='%23fff' stroke-width='3'/%3E%3Cellipse cx='50' cy='70' rx='10' ry='16' fill='none' stroke='%23fff' stroke-width='3'/%3E%3Cline x1='40' y1='38' x2='60' y2='38' stroke='%23fff' stroke-width='2.5'/%3E%3Cline x1='40' y1='50' x2='60' y2='50' stroke='%23fff' stroke-width='2.5'/%3E%3Cline x1='40' y1='62' x2='60' y2='62' stroke='%23fff' stroke-width='2.5'/%3E%3C/svg%3E" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+    <!-- Core Styles -->
+    <link rel="stylesheet" href="../css/style.css" />
+    <!-- Specific Page Styles -->
+    <link rel="stylesheet" href="../css/services.css" />
+  </head>
+  <body>
+
+    <!-- ===================== LOADER ===================== -->
+    <div class="loader" id="loader" aria-hidden="true" role="status">
+      <div class="loader-dna">
+        <div class="dna-strand">
+          <span></span><span></span><span></span>
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+      <p class="loader-text">BioTechnology</p>
+    </div>
+
+    <!-- ===================== HEADER ===================== -->
+    <header class="header" id="header">
+      <div class="header-container">
+        <!-- Logo -->
+        <div class="logo-section">
+          <a href="../index.html" class="logo-link" aria-label="BioTechnology Home">
+            <img src="../assets/Home1/Header/logo.webp" alt="BioTechnology Logo" class="logo" id="logo" />
+          </a>
+        </div>
+
+        <!-- Desktop Nav -->
+        <nav class="nav-desktop" id="navDesktop" aria-label="Main navigation">
+          <ul class="nav-list" role="list">
+            <li><a href="../index.html" class="nav-link">Home</a></li>
+            <li><a href="./about.html" class="nav-link">About Us</a></li>
+            <li><a href="./services.html" class="nav-link active-nav">Services</a></li>
+            <li><a href="./blog.html" class="nav-link">Blog</a></li>
+            <li><a href="./contact.html" class="nav-link">Contact</a></li>
+            <li><a href="./signup.html" class="nav-link nav-signup">Sign Up</a></li>
+            <li><a href="./login.html" class="nav-link nav-login">Login</a></li>
+          </ul>
+        </nav>
+
+        <!-- Header Actions -->
+        <div class="header-actions">
+          <button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark theme" title="Toggle Theme">
+            <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+            <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+          </button>
+          <button class="hamburger-toggle" id="hamburgerToggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="hamburgerMenu">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- ===================== HAMBURGER OVERLAY ===================== -->
+    <div class="hamburger-overlay" id="hamburgerOverlay" aria-hidden="true"></div>
+    <div class="hamburger-menu" id="hamburgerMenu" role="dialog" aria-modal="true" aria-label="Navigation menu">
+      <button class="hamburger-close" id="hamburgerClose" aria-label="Close navigation menu">&#x2715;</button>
+      <nav class="hamburger-nav" aria-label="Mobile navigation">
+        <ul class="hamburger-list" role="list">
+          <li><a href="../index.html" class="hamburger-link">Home</a></li>
+          <li><a href="./about.html" class="hamburger-link">About Us</a></li>
+          <li><a href="./services.html" class="hamburger-link">Services</a></li>
+          <li><a href="./blog.html" class="hamburger-link">Blog</a></li>
+          <li><a href="./contact.html" class="hamburger-link">Contact</a></li>
+          <li><a href="./signup.html" class="hamburger-link hm-signup">Sign Up</a></li>
+          <li><a href="./login.html" class="hamburger-link hm-login">Login</a></li>
+          <li class="hm-theme-row">
+            <button class="theme-toggle hm-theme-btn" id="hamburgerThemeToggle" aria-label="Toggle theme">
+              <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <circle cx="12" cy="12" r="5"></circle>
+                <line x1="12" y1="1" x2="12" y2="3"></line>
+                <line x1="12" y1="21" x2="12" y2="23"></line>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                <line x1="1" y1="12" x2="3" y2="12"></line>
+                <line x1="21" y1="12" x2="23" y2="12"></line>
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+              </svg>
+              <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+              </svg>
+              <span class="hm-theme-label">Switch Theme</span>
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+    <!-- ===================== SECTION 1: HERO VIDEO ===================== -->
+    <section class="services-hero">
+      <!-- Fallback using a generic high-quality abstract tech video loop or an image if video fails -->
+      <video class="hero-bg-video" autoplay loop muted playsinline poster="../assets/Home1/Grid/1.webp">
+        <source src="../assets/Services/serviceHero.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      <div class="hero-video-overlay"></div>
+      
+      <div class="services-hero-content">
+        <div class="hero-title-slider fade-in delay-1">
+          <h1 class="services-hero-title active">Comprehensive Biotechnology Services</h1>
+          <h1 class="services-hero-title">Pioneering Sustainable Agriculture</h1>
+          <h1 class="services-hero-title">Advancing Environmental Solutions</h1>
+        </div>
+        <p class="services-hero-para fade-in delay-2">Advance your research with our end-to-end solutions spanning from therapeutics to sustainable agriculture methodologies.</p>
+        <div class="services-hero-btns fade-in delay-2">
+          <a href="./error.html" class="btn btn-amber-solid">Explore Solutions</a>
+          <a href="./error.html" class="btn btn-secondary">Request Consultation</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== SECTION 2: SERVICES GRID ===================== -->
+    <section class="services-grid-section fade-section" aria-label="Our Core Services">
+      <div class="section-container">
+        <h1 class="section-title fade-in">Leading Solutions for a Better Tomorrow</h1>
+        <p class="section-description fade-in">Browse our specialized departments. Filter by category to discover how we can assist your specific operational challenges.</p>
+
+        <!-- Filter Controls -->
+        <div class="filter-controls fade-in">
+          <button class="filter-btn active" data-filter="all">All Services</button>
+          <button class="filter-btn" data-filter="medical">Medical &amp; Pharma</button>
+          <button class="filter-btn" data-filter="agriculture">Agriculture &amp; Food</button>
+          <button class="filter-btn" data-filter="environment">Environment &amp; Energy</button>
+        </div>
+
+        <!-- 10 Grid Items -->
+        <div class="service-grid">
+          
+          <!-- Item 1 -->
+          <div class="service-card" data-category="medical">
+            <div class="srv-img-wrap">
+              <img src="../assets/Services/Grid/serv1.webp" alt="Therapeutics" class="srv-img" />
+              <div class="srv-overlay"></div>
+            </div>
+            <div class="srv-content-unhovered">
+              <h1 class="srv-title">Advanced Therapeutics</h1>
+              <p class="srv-short">Pioneering precision medicine and novel treatments.</p>
+            </div>
+            <div class="srv-content-hovered">
+              <p class="srv-desc">Our therapeutics department specializes in gene editing, targeted precision oncology, and personalized immunology therapies for critical diseases.</p>
+              <div class="srv-btns">
+                <a href="./error.html" class="btn btn-amber-solid btn-sm">Learn More</a>
+                <a href="./error.html" class="btn btn-secondary btn-sm">Contact Lab</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 2 -->
+          <div class="service-card" data-category="medical">
+            <div class="srv-img-wrap">
+              <img src="../assets/Services/Grid/serv2.webp" alt="Diagnostics" class="srv-img" />
+              <div class="srv-overlay"></div>
+            </div>
+            <div class="srv-content-unhovered">
+              <h1 class="srv-title">Clinical Diagnostics</h1>
+              <p class="srv-short">Rapid, highly accurate bio-marker screening.</p>
+            </div>
+            <div class="srv-content-hovered">
+              <p class="srv-desc">Offering state-of-the-art diagnostic screening, next-gen sequencing, and predictive modeling for early disease detection and management.</p>
+              <div class="srv-btns">
+                <a href="./error.html" class="btn btn-amber-solid btn-sm">Learn More</a>
+                <a href="./error.html" class="btn btn-secondary btn-sm">Contact Lab</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 3 -->
+          <div class="service-card" data-category="agriculture">
+            <div class="srv-img-wrap">
+              <img src="../assets/Services/Grid/serv3.webp" alt="GMO Agriculture" class="srv-img" />
+              <div class="srv-overlay"></div>
+            </div>
+            <div class="srv-content-unhovered">
+              <h1 class="srv-title">Genetically Modified Crops</h1>
+              <p class="srv-short">Yield-boosting, drought-resistant plant engineering.</p>
+            </div>
+            <div class="srv-content-hovered">
+              <p class="srv-desc">We develop seeds and crops structurally engineered for superior pest resistance, nutritional profiles, and scalable agricultural yield.</p>
+              <div class="srv-btns">
+                <a href="./error.html" class="btn btn-amber-solid btn-sm">Learn More</a>
+                <a href="./error.html" class="btn btn-secondary btn-sm">Contact Lab</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 4 -->
+          <div class="service-card" data-category="agriculture">
+            <div class="srv-img-wrap">
+              <img src="../assets/Services/Grid/serv4.webp" alt="Processed Food" class="srv-img" />
+              <div class="srv-overlay"></div>
+            </div>
+            <div class="srv-content-unhovered">
+              <h1 class="srv-title">Processed Food Tech</h1>
+              <p class="srv-short">Enzyme optimization and natural preservatives.</p>
+            </div>
+            <div class="srv-content-hovered">
+              <p class="srv-desc">Optimizing shelf stability, flavor retention, and fermentation processes using natural bacterial strains and cutting-edge enzyme technology.</p>
+              <div class="srv-btns">
+                <a href="./error.html" class="btn btn-amber-solid btn-sm">Learn More</a>
+                <a href="./error.html" class="btn btn-secondary btn-sm">Contact Lab</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 5 -->
+          <div class="service-card" data-category="environment">
+            <div class="srv-img-wrap">
+              <img src="../assets/Services/Grid/serv5.webp" alt="Bioremediation" class="srv-img" />
+              <div class="srv-overlay"></div>
+            </div>
+            <div class="srv-content-unhovered">
+              <h1 class="srv-title">Bioremediation</h1>
+              <p class="srv-short">Eco-friendly toxin breakdown and habitat restoration.</p>
+            </div>
+            <div class="srv-content-hovered">
+              <p class="srv-desc">Utilizing engineered microbes and fungi to safely metabolize toxic spills, industrial waste, and restore ecological balances globally.</p>
+              <div class="srv-btns">
+                <a href="./error.html" class="btn btn-amber-solid btn-sm">Learn More</a>
+                <a href="./error.html" class="btn btn-secondary btn-sm">Contact Lab</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 6 -->
+          <div class="service-card" data-category="environment">
+            <div class="srv-img-wrap">
+              <img src="../assets/Services/Grid/serv6.webp" alt="Waste Treatment" class="srv-img" />
+              <div class="srv-overlay"></div>
+            </div>
+            <div class="srv-content-unhovered">
+              <h1 class="srv-title">Waste Treatment</h1>
+              <p class="srv-short">Industrial anaerobic digestion systems.</p>
+            </div>
+            <div class="srv-content-hovered">
+              <p class="srv-desc">Deploying scaled biological reactors to convert organic waste materials into safe byproducts, water, and usable biogas.</p>
+              <div class="srv-btns">
+                <a href="./error.html" class="btn btn-amber-solid btn-sm">Learn More</a>
+                <a href="./error.html" class="btn btn-secondary btn-sm">Contact Lab</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 7 -->
+          <div class="service-card" data-category="environment">
+            <div class="srv-img-wrap">
+              <img src="../assets/Services/Grid/serv7.webp" alt="Energy Production" class="srv-img" />
+              <div class="srv-overlay"></div>
+            </div>
+            <div class="srv-content-unhovered">
+              <h1 class="srv-title">Bio-Energy Production</h1>
+              <p class="srv-short">Renewable biofuels from organic substrates.</p>
+            </div>
+            <div class="srv-content-hovered">
+              <p class="srv-desc">Researching and mass-producing high-density algae biofuels and cellulosic ethanol to reduce planetary reliance on fossil fuels.</p>
+              <div class="srv-btns">
+                <a href="./error.html" class="btn btn-amber-solid btn-sm">Learn More</a>
+                <a href="./error.html" class="btn btn-secondary btn-sm">Contact Lab</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 8 -->
+          <div class="service-card" data-category="medical">
+            <div class="srv-img-wrap">
+              <img src="../assets/Services/Grid/serv8.webp" alt="Bioinformatics" class="srv-img" />
+              <div class="srv-overlay"></div>
+            </div>
+            <div class="srv-content-unhovered">
+              <h1 class="srv-title">Bioinformatics</h1>
+              <p class="srv-short">Computational mapping for genomic sequences.</p>
+            </div>
+            <div class="srv-content-hovered">
+              <p class="srv-desc">Harnessing AI-driven analytics to map complex DNA/RNA frameworks, accelerating the timeline from raw data to actionable clinical conclusions.</p>
+              <div class="srv-btns">
+                <a href="./error.html" class="btn btn-amber-solid btn-sm">Learn More</a>
+                <a href="./error.html" class="btn btn-secondary btn-sm">Contact Lab</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 9 -->
+          <div class="service-card" data-category="medical">
+            <div class="srv-img-wrap">
+              <img src="../assets/Services/Grid/serv9.webp" alt="Stem Cell Research" class="srv-img" />
+              <div class="srv-overlay"></div>
+            </div>
+            <div class="srv-content-unhovered">
+              <h1 class="srv-title">Stem Cell Processing</h1>
+              <p class="srv-short">Regenerative medical frameworks and therapies.</p>
+            </div>
+            <div class="srv-content-hovered">
+              <p class="srv-desc">Leading innovations in induced pluripotent stem cells (iPSCs) for organ regeneration, tissue repair, and degenerative disease reversal.</p>
+              <div class="srv-btns">
+                <a href="./error.html" class="btn btn-amber-solid btn-sm">Learn More</a>
+                <a href="./error.html" class="btn btn-secondary btn-sm">Contact Lab</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 10 -->
+          <div class="service-card" data-category="agriculture">
+            <div class="srv-img-wrap">
+              <img src="../assets/Services/Grid/serv10.webp" alt="Marine BioTech" class="srv-img" />
+              <div class="srv-overlay"></div>
+            </div>
+            <div class="srv-content-unhovered">
+              <h1 class="srv-title">Marine Biotechnology</h1>
+              <p class="srv-short">Harnessing ocean ecosystems for pharmaceutical compounds.</p>
+            </div>
+            <div class="srv-content-hovered">
+              <p class="srv-desc">Extracting and purifying complex bioactive compounds from marine flora and fauna to develop advanced antiviral and anticancer drugs.</p>
+              <div class="srv-btns">
+                <a href="./error.html" class="btn btn-amber-solid btn-sm">Learn More</a>
+                <a href="./error.html" class="btn btn-secondary btn-sm">Contact Lab</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== SECTION 3: PRICING ===================== -->
+    <section class="pricing-section fade-section" aria-label="Service Pricing">
+      <div class="section-container">
+        <h1 class="section-title fade-in">Transparent Service Pricing</h1>
+        <p class="section-description fade-in">Choose a tier that perfectly scales with your organization's research scope and required oversight infrastructure.</p>
+        
+        <div class="pricing-grid">
+          
+          <div class="price-box fade-in">
+            <h1 class="price-tier">Basic Analysis</h1>
+            <div class="price-amt">$4,999 <span>/mo</span></div>
+            <p class="price-desc">Perfect for small labs requiring intermittent diagnostics.</p>
+            <ul class="price-features">
+              <li><span aria-hidden="true">✓</span> Standard Biomarker Screening</li>
+              <li><span aria-hidden="true">✓</span> Monthly Analytics Report</li>
+              <li><span aria-hidden="true">✓</span> Phone Support</li>
+              <li class="disabled"><span aria-hidden="true">✕</span> Priority Processing</li>
+            </ul>
+            <a href="./error.html" class="btn btn-amber-outline">Choose Plan</a>
+          </div>
+
+          <div class="price-box featured fade-in delay-1">
+            <div class="price-badge">Most Popular</div>
+            <h1 class="price-tier">Advanced R&amp;D</h1>
+            <div class="price-amt">$12,500 <span>/mo</span></div>
+            <p class="price-desc">Comprehensive access for intensive medical clinical trials.</p>
+            <ul class="price-features">
+              <li><span aria-hidden="true">✓</span> Full Genomic Sequencing</li>
+              <li><span aria-hidden="true">✓</span> Weekly Deep Analytics</li>
+              <li><span aria-hidden="true">✓</span> Dedicated Project Manager</li>
+              <li><span aria-hidden="true">✓</span> Priority Processing</li>
+            </ul>
+            <a href="./error.html" class="btn btn-amber-solid">Choose Plan</a>
+          </div>
+
+          <div class="price-box fade-in delay-2">
+            <h1 class="price-tier">Enterprise Infrastructure</h1>
+            <div class="price-amt">Custom</div>
+            <p class="price-desc">Global-scale bioremediation or broad agricultural integration.</p>
+            <ul class="price-features">
+              <li><span aria-hidden="true">✓</span> Custom Engineered Microbial Systems</li>
+              <li><span aria-hidden="true">✓</span> 24/7 Priority Emergency Support</li>
+              <li><span aria-hidden="true">✓</span> On-site Facilities Integration</li>
+              <li><span aria-hidden="true">✓</span> Regulatory Clearance Partnership</li>
+            </ul>
+            <a href="./error.html" class="btn btn-amber-outline">Contact Sales</a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== SECTION 4: CAREERS ===================== -->
+    <section class="careers-section fade-section" aria-label="Careers">
+      <div class="section-container">
+        <div class="career-layout">
+          <div class="career-content fade-in">
+            <h1 class="section-title">Shape the Future With Us</h1>
+            <p class="career-para">We are actively searching for top-tier talent to join our research and operations centers worldwide. If you are passionate about the intersection of life sciences, ecological sustainability, and cutting-edge software engineering, there is a place for you at BioTechnology.</p>
+            <p class="career-para">Join our cross-functional teams tackling complex regulatory pathways, bioinformatics data architecture, and novel therapeutic development.</p>
+            
+            <div class="career-stats">
+              <div class="countup-box">
+                 <h2><span class="countup" data-target="150">0</span>+</h2>
+                 <p>Open Roles</p>
+              </div>
+              <div class="countup-box">
+                 <h2><span class="countup" data-target="18">0</span></h2>
+                 <p>Global Locations</p>
+              </div>
+            </div>
+
+            <div class="career-btns">
+              <a href="./error.html" class="btn btn-amber-solid">View Opportunities</a>
+              <a href="./error.html" class="btn btn-secondary">Culture &amp; Benefits</a>
+            </div>
+          </div>
+
+          <div class="career-gallery fade-in delay-1">
+            <img src="../assets/Services/33.webp" alt="Laboratory Work" class="c-img c-img-main" />
+            <img src="../assets/Services/22.webp" alt="Field Research" class="c-img c-img-sub1" />
+            <img src="../assets/Services/11.webp" alt="Data Analytics" class="c-img c-img-sub2" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== SECTION 5: FAQS ===================== -->
+    <section class="faq-section fade-section" aria-label="Frequently Asked Questions">
+      <div class="section-container">
+        <h1 class="section-title fade-in">Frequently Asked Questions</h1>
+        <p class="section-description fade-in">Clear answers to our most common operational, research, and technical inquiries.</p>
+
+        <div class="faq-accordion fade-in">
+          
+          <div class="faq-item">
+            <button class="faq-trigger" aria-expanded="false">
+              <h1 class="faq-question">What is the standard timeline for clinical diagnostics turnaround?</h1>
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-content">
+              <p class="faq-text">For standard biomarker screening, results are typically processed within 48 to 72 hours. Advanced genomic sequencing and robust modeling may require 2 to 3 weeks depending on the complexity of the trial structure and local compliance regulations.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-trigger" aria-expanded="false">
+              <h1 class="faq-question">Do you offer localized agricultural engineering for international climates?</h1>
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-content">
+              <p class="faq-text">Yes, our agricultural division models seeds to match specific geoclimatic zones. We have optimized drought-resistant strains for arid regions and pest-resistant mechanisms specific to tropical equatorial zones.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-trigger" aria-expanded="false">
+              <h1 class="faq-question">How does your bioremediation protocol handle synthetic chemical waste?</h1>
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-content">
+              <p class="faq-text">We utilize a two-stage approach. First, we synthesize highly adaptive bacterial enzymes known to break covalent bonds in complex synthetic oils and plastics. Second, we introduce specialized fungi to absorb heavy metals and mitigate downstream soil contamination.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-trigger" aria-expanded="false">
+              <h1 class="faq-question">Is the Bioinformatics dataset securely isolated for enterprise tier clients?</h1>
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-content">
+              <p class="faq-text">Absolutely. All proprietary genomic models and trial data exist on air-gapped or heavily encrypted private cloud architecture compliant with HIPAA, GDPR, and ISO 27001 standards.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-trigger" aria-expanded="false">
+              <h1 class="faq-question">Are there opportunities for undergraduate internships at BioTechnology?</h1>
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-content">
+              <p class="faq-text">We launch global fellowship and internship programs twice a year, targeted at exceptional juniors and seniors studying bioinformatics, organic chemistry, or ecological sciences. Watch our careers page during Q3 for applications.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== FOOTER ===================== -->
+    <!-- Identical footer logic to index/about pages -->
+    <footer class="footer" id="footer">
+      <div class="footer-container">
+        <!-- Col 1: Logo + Para -->
+        <div class="footer-col footer-col-brand">
+          <a href="../index.html" class="footer-logo-link" aria-label="BioTechnology Home">
+            <img src="../assets/Home1/Header/logo.webp" alt="BioTechnology Logo" class="footer-logo" id="footerLogo" />
+          </a>
+          <p class="footer-brand-para">
+            BioTechnology is dedicated to advancing human health through innovative research, breakthrough therapies, and compassionate care. We believe every life deserves the best science can offer.
+          </p>
+        </div>
+        <!-- Col 2: Company -->
+        <div class="footer-col">
+          <h4 class="footer-col-heading">Company</h4>
+          <ul class="footer-col-links" role="list">
+            <li><a href="./about.html" class="footer-link">About</a></li>
+            <li><a href="./services.html" class="footer-link">Services</a></li>
+            <li><a href="./contact.html" class="footer-link">Contact</a></li>
+            <li><a href="./login.html" class="footer-link">Login</a></li>
+          </ul>
+        </div>
+        <!-- Col 3: Research -->
+        <div class="footer-col">
+          <h4 class="footer-col-heading">Research</h4>
+          <ul class="footer-col-links" role="list">
+            <li><a href="./error.html" class="footer-link">Clinical Trials</a></li>
+            <li><a href="./error.html" class="footer-link">Partnerships</a></li>
+            <li><a href="./error.html" class="footer-link">Publications</a></li>
+            <li><a href="./error.html" class="footer-link">Case Studies</a></li>
+          </ul>
+        </div>
+        <!-- Col 4: Newsletter + Social -->
+        <div class="footer-col">
+          <h4 class="footer-col-heading">Newsletter</h4>
+          <p class="footer-newsletter-desc">Stay updated with the latest research breakthroughs and BioTech innovations.</p>
+          <form class="footer-newsletter-form" id="newsletterForm" novalidate>
+            <div class="footer-newsletter-row">
+              <label for="newsletterEmail" class="sr-only">Email address</label>
+              <input type="email" id="newsletterEmail" name="email" placeholder="Your email address" class="footer-newsletter-input" autocomplete="email" required />
+              <button type="submit" class="footer-newsletter-btn" aria-label="Subscribe to newsletter">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </button>
+            </div>
+            <p class="footer-newsletter-err" id="newsletterErr" role="alert" aria-live="polite"></p>
+          </form>
+          <div class="footer-social" aria-label="Social media links">
+            <a href="./error.html" class="social-btn" aria-label="Follow us on Facebook" title="Facebook">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+            </a>
+            <a href="./error.html" class="social-btn" aria-label="Follow us on Twitter/X" title="Twitter/X">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 4l16 16m0-16L4 20" stroke="currentColor" stroke-width="2.5" fill="none"></path></svg>
+            </a>
+            <a href="./error.html" class="social-btn" aria-label="Follow us on LinkedIn" title="LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"></path><circle cx="4" cy="4" r="2"></circle></svg>
+            </a>
+            <a href="./error.html" class="social-btn" aria-label="Follow us on Instagram" title="Instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-bottom-inner">
+          <p class="footer-copy">&copy; 2025 BioTechnology Inc. All rights reserved. Advancing Human Health Worldwide.</p>
+          <nav class="footer-bottom-links" aria-label="Legal links">
+            <a href="./error.html" class="footer-bottom-link">Privacy Policy</a>
+            <span aria-hidden="true">·</span>
+            <a href="./error.html" class="footer-bottom-link">Terms of Service</a>
+            <span aria-hidden="true">·</span>
+            <a href="./error.html" class="footer-bottom-link">Cookie Policy</a>
+            <span aria-hidden="true">·</span>
+            <a href="./error.html" class="footer-bottom-link">Sitemap</a>
+          </nav>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ===================== SCROLL TO TOP ===================== -->
+    <button class="scroll-to-top" id="scrollToTop" aria-label="Scroll to top of page" title="Scroll to top">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+        <polyline points="18 15 12 9 6 15"></polyline>
+      </svg>
+    </button>
+
+    <!-- ===================== SCRIPTS ===================== -->
+    <script>
+      /* 1. LOADER */
+      (function () {
+        var loader = document.getElementById('loader');
+        function hideLoader() {
+          loader.classList.add('fade-out');
+          setTimeout(function () {
+            loader.style.display = 'none';
+            loader.setAttribute('aria-hidden', 'true');
+          }, 600);
+        }
+        window.addEventListener('load', function () { setTimeout(hideLoader, 600); });
+        window.addEventListener('pageshow', function (e) {
+          if (e.persisted) { loader.style.display = 'none'; loader.setAttribute('aria-hidden', 'true'); }
+        });
+      })();
+
+      /* 2. THEME TOGGLE */
+      (function () {
+        var html = document.documentElement;
+        var saved = localStorage.getItem('bt-theme') || 'light';
+        html.setAttribute('data-theme', saved);
+        document.querySelectorAll('.theme-toggle').forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            var curr = html.getAttribute('data-theme');
+            var next = curr === 'light' ? 'dark' : 'light';
+            html.setAttribute('data-theme', next);
+            localStorage.setItem('bt-theme', next);
+          });
+        });
+      })();
+
+      /* 3. HAMBURGER MENU */
+      (function () {
+        var toggle = document.getElementById('hamburgerToggle');
+        var menu = document.getElementById('hamburgerMenu');
+        var overlay = document.getElementById('hamburgerOverlay');
+        var closeBtn = document.getElementById('hamburgerClose');
+        function openMenu() {
+          menu.classList.add('open'); overlay.classList.add('open');
+          toggle.setAttribute('aria-expanded', 'true'); document.body.style.overflow = 'hidden';
+        }
+        function closeMenu() {
+          menu.classList.remove('open'); overlay.classList.remove('open');
+          toggle.setAttribute('aria-expanded', 'false'); document.body.style.overflow = '';
+        }
+        toggle.addEventListener('click', function (e) {
+          e.stopPropagation(); menu.classList.contains('open') ? closeMenu() : openMenu();
+        });
+        closeBtn.addEventListener('click', closeMenu); overlay.addEventListener('click', closeMenu);
+        menu.querySelectorAll('.hamburger-link').forEach(function (link) { link.addEventListener('click', closeMenu); });
+        document.addEventListener('keydown', function (e) {
+          if (e.key === 'Escape' && menu.classList.contains('open')) closeMenu();
+        });
+      })();
+
+      /* 4. HEADER SCROLL EFFECT */
+      (function () {
+        var header = document.getElementById('header');
+        window.addEventListener('scroll', function () {
+          if (window.scrollY > 50) header.classList.add('scrolled');
+          else header.classList.remove('scrolled');
+        });
+      })();
+
+      /* 5. SCROLL TO TOP */
+      (function () {
+        var btn = document.getElementById('scrollToTop');
+        window.addEventListener('scroll', function () { btn.classList.toggle('visible', window.scrollY > 400); });
+        btn.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+      })();
+
+      /* 6. FADE-IN ON SCROLL */
+      (function () {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+               entry.target.classList.add('visible'); io.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+        document.querySelectorAll('.fade-in').forEach(function (el) { io.observe(el); });
+
+        var sio = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+               entry.target.classList.add('section-visible'); sio.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.08 });
+        document.querySelectorAll('.fade-section').forEach(function (el) { sio.observe(el); });
+      })();
+
+      /* 7. COUNTUP ANIMATION */
+      (function () {
+        var cio = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              var el = entry.target;
+              if (el.dataset.counted) return;
+              el.dataset.counted = '1';
+              var target = parseInt(el.getAttribute('data-target'), 10);
+              var duration = 1800; var start = null;
+              function step(ts) {
+                if (!start) start = ts;
+                var progress = Math.min((ts - start) / duration, 1);
+                var eased = 1 - Math.pow(1 - progress, 3);
+                el.textContent = Math.floor(eased * target).toLocaleString();
+                if (progress < 1) requestAnimationFrame(step);
+                else el.textContent = target.toLocaleString();
+              }
+              requestAnimationFrame(step);
+              cio.unobserve(el);
+            }
+          });
+        }, { threshold: 0.5 });
+        document.querySelectorAll('.countup').forEach(function (el) { cio.observe(el); });
+      })();
+
+      /* 8. NEWSLETTER FORM VALIDATION */
+      (function () {
+        var form = document.getElementById('newsletterForm');
+        var emailInput = document.getElementById('newsletterEmail');
+        var errEl = document.getElementById('newsletterErr');
+        if (!form) return;
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+          var val = emailInput.value.trim();
+          var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+          if (!val) { showErr('Please enter your email address.'); return; }
+          if (!emailRegex.test(val)) { showErr('Please enter a valid email address.'); return; }
+          window.location.href = './error.html';
+        });
+        function showErr(msg) {
+          errEl.textContent = msg; errEl.style.color = '#e74c3c'; emailInput.focus();
+        }
+        emailInput.addEventListener('input', function () { errEl.textContent = ''; });
+      })();
+
+      /* 9. PAGE LEAVE LOADER */
+      (function () {
+        document.querySelectorAll('a[href]').forEach(function (a) {
+          var href = a.getAttribute('href');
+          if (href && !href.startsWith('#') && !href.startsWith('mailto') && !href.startsWith('tel') && !a.getAttribute('target')) {
+            a.addEventListener('click', function (e) {
+              var loader = document.getElementById('loader');
+              if (loader) {
+                loader.style.display = 'flex'; loader.style.opacity = '1'; loader.classList.remove('fade-out');
+              }
+            });
+          }
+        });
+      })();
+
+      /* 10. SERVICES FILTER */
+      (function() {
+        const btns = document.querySelectorAll('.filter-btn');
+        const cards = document.querySelectorAll('.service-card');
+        if (!btns.length || !cards.length) return;
+
+        btns.forEach(btn => {
+          btn.addEventListener('click', () => {
+             // Remove active class
+             btns.forEach(b => b.classList.remove('active'));
+             btn.classList.add('active');
+
+             const filterVal = btn.getAttribute('data-filter');
+             
+             cards.forEach(card => {
+                if(filterVal === 'all' || card.getAttribute('data-category') === filterVal) {
+                   card.style.display = 'block';
+                   // Add a tiny delay to re-trigger opacity if we wanted complex anim, but display block is OK for now.
+                   setTimeout(() => { card.style.opacity = '1'; card.style.transform = 'translateY(0)'; }, 50);
+                } else {
+                   card.style.opacity = '0'; card.style.transform = 'translateY(20px)';
+                   setTimeout(() => { card.style.display = 'none'; }, 300);
+                }
+             });
+          });
+        });
+      })();
+      
+      /* 10.5 HERO SLIDER */
+      (function() {
+        const titles = document.querySelectorAll('.hero-title-slider .services-hero-title');
+        if (titles.length === 0) return;
+        let index = 0;
+        setInterval(() => {
+          titles[index].classList.remove('active');
+          index = (index + 1) % titles.length;
+          titles[index].classList.add('active');
+        }, 2000);
+      })();
+
+      /* 11. FAQ ACCORDION */
+      (function() {
+        const triggers = document.querySelectorAll('.faq-trigger');
+        triggers.forEach(trigger => {
+           trigger.addEventListener('click', () => {
+              const isExpanded = trigger.getAttribute('aria-expanded') === 'true';
+              
+              // Close all others
+              triggers.forEach(otherTrigger => {
+                 if (otherTrigger !== trigger) {
+                    otherTrigger.setAttribute('aria-expanded', 'false');
+                    otherTrigger.querySelector('.faq-icon').textContent = '+';
+                    otherTrigger.nextElementSibling.style.maxHeight = null;
+                 }
+              });
+
+              // Toggle current
+              if (isExpanded) {
+                 trigger.setAttribute('aria-expanded', 'false');
+                 trigger.querySelector('.faq-icon').textContent = '+';
+                 trigger.nextElementSibling.style.maxHeight = null;
+              } else {
+                 trigger.setAttribute('aria-expanded', 'true');
+                 trigger.querySelector('.faq-icon').textContent = '-';
+                 let content = trigger.nextElementSibling;
+                 content.style.maxHeight = content.scrollHeight + "px";
+              }
+           });
+        });
+      })();
+
+    </script>
+  </body>
+</html>
