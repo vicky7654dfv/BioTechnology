@@ -1,0 +1,693 @@
+/* ============================================================
+   BIOTECHNOLOGY — about.css
+============================================================ */
+
+/* ==================== HERO CAROUSEL ==================== */
+.about-hero {
+  position: relative;
+  min-height: 100vh;
+  padding-top: var(--hh);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: var(--bg);
+}
+
+.hero-carousel {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.carousel-slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.carousel-slide.active {
+  opacity: 1;
+}
+
+.hero-carousel-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.6) 100%;
+}
+
+.about-hero-content {
+  position: relative;
+  z-index: 3;
+  color: #fff;
+  text-align: center;
+  max-width: 800px;
+  padding: 40px 24px;
+}
+
+.about-hero-title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 900;
+  line-height: 1.1;
+  margin-bottom: 8px;
+  animation: fadeInDown 1s ease both;
+}
+
+.about-hero-subtitle {
+  font-size: clamp(1.2rem, 3vw, 1.8rem);
+  font-weight: 600;
+  color: var(--amber-light);
+  margin-bottom: 20px;
+  animation: fadeInDown 1s ease 0.15s both;
+}
+
+.about-hero-para {
+  font-size: clamp(1.1rem, 2vw, 1.3rem);
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.95);
+  margin-bottom: 36px;
+  line-height: 1.8;
+  animation: fadeInUp 1s ease 0.3s both;
+}
+
+.about-hero-btns {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+  animation: fadeIn 1s ease 0.6s both;
+}
+
+/* ==================== SECTION 2: HISTORY ==================== */
+.history-section {
+  padding: 100px 0;
+  background: var(--surface);
+}
+
+.history-section .section-title {
+  margin-bottom: 16px;
+}
+
+.history-section .section-description {
+  margin-bottom: 48px;
+}
+
+.history-wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+}
+
+.history-card {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  height: 480px;
+  border: 1px solid var(--border);
+  box-shadow: var(--sh-md);
+  transition: box-shadow var(--tb);
+}
+
+.history-card:hover {
+  box-shadow: var(--sh-xl);
+}
+
+.history-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--ts), filter var(--ts);
+  filter: brightness(0.85);
+}
+
+.history-card:hover .history-img {
+  transform: scale(1.08);
+  filter: brightness(0.4);
+}
+
+.history-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.2) 60%, transparent 100%);
+  z-index: 1;
+}
+
+.history-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 40px 32px;
+  z-index: 2;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 100%;
+}
+
+.history-title {
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin-bottom: 8px;
+  transition: transform var(--tb);
+}
+
+.history-subtitle {
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: var(--amber-light);
+  transition: transform var(--tb), opacity var(--tb);
+}
+
+.history-hover-content {
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  margin-top: 0;
+  transition: all var(--tb);
+}
+
+.history-card:hover .history-hover-content {
+  max-height: 60px;
+  opacity: 1;
+  margin-top: 20px;
+}
+
+.history-card:hover .history-title {
+  transform: translateY(-5px);
+}
+.history-card:hover .history-subtitle {
+  transform: translateY(-5px);
+}
+.btn-amber-solid:hover{
+transform: none;
+}
+
+/* ==================== SECTION 3: FOUNDERS GRID ==================== */
+.founders-section {
+  padding: 100px 0;
+  background: var(--bg);
+}
+
+.founders-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-top: 48px;
+}
+
+.founder-box {
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: 16px;
+  padding: 32px 24px;
+  text-align: center;
+  transition: transform var(--tb), box-shadow var(--tb), border-color var(--tb);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.founder-box:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--sh-lg);
+  border-color: var(--amber);
+}
+
+.founder-img-wrap {
+  width: 250px;
+  height: 250px;
+  margin: 0 auto 24px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid var(--amber);
+  box-shadow: var(--sh-md);
+  position: relative;
+}
+
+.founder-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--ts);
+}
+
+.founder-box:hover .founder-img {
+  transform: scale(1.1);
+}
+
+.founder-default {
+  transition: opacity var(--tf), transform var(--tf);
+}
+
+.founder-name {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+
+.founder-role {
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+.founder-hover {
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: all var(--tb);
+  margin-top: 0;
+}
+
+.founder-box:hover .founder-hover {
+  max-height: 50px;
+  opacity: 1;
+  margin-top: 16px;
+}
+
+.founder-socials {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.fsocial-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--hover);
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--tf);
+  border: 1px solid var(--border);
+}
+
+.fsocial-btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+.fsocial-btn:hover {
+  background: var(--amber);
+  color: #1c1917;
+  border-color: var(--amber);
+  box-shadow: var(--sh-sm);
+}
+
+/* ==================== SECTION 4: TESTIMONIALS ==================== */
+.testimonials-section {
+  padding: 100px 0;
+  background: var(--surface);
+  overflow: hidden;
+}
+
+.testimonial-slider-wrap {
+  position: relative;
+  height: 320px;
+  max-width: 900px;
+  margin: 40px auto 0;
+}
+
+.testimonial-track {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.test-card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: var(--bg);
+  border: 1.5px solid var(--border);
+  border-radius: 20px;
+  padding: 40px 48px;
+  box-shadow: var(--sh-md);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(40px) scale(0.95);
+  transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+.test-card.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+  z-index: 2;
+}
+
+.test-card.next {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(40px) scale(0.95);
+  z-index: 1;
+}
+
+.test-card.out {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-40px) scale(0.95);
+  z-index: 0;
+}
+
+.test-nota {
+  font-size: 3rem;
+  color: var(--amber);
+  line-height: 1;
+  margin-bottom: 12px;
+}
+
+.test-title {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 16px;
+}
+
+.test-para {
+  font-size: 1.1rem;
+  color: var(--muted);
+  line-height: 1.8;
+  margin-bottom: 24px;
+  font-style: italic;
+  flex-grow: 1;
+}
+
+.test-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1.5px solid var(--border);
+  padding-top: 24px;
+}
+
+.test-link {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--amber);
+  transition: color var(--tf);
+}
+
+.test-link:hover {
+  color: var(--amber-dark);
+}
+
+/* Stats within Testimonials */
+.test-stats {
+  display: flex;
+  justify-content: center;
+  gap: 64px;
+  margin-top: 60px;
+}
+
+.ts-box {
+  text-align: center;
+}
+
+.ts-box h2 {
+  font-size: 3rem;
+  font-weight: 900;
+  color: var(--amber);
+  line-height: 1.1;
+  margin-bottom: 8px;
+}
+
+.ts-box p {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* ==================== SECTION 5: VISION/MISSION ==================== */
+.vision-section {
+  position: relative;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--dark-bg);
+  overflow: hidden;
+  padding: 100px 24px;
+}
+
+.vision-bg {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  z-index: 1;
+}
+
+.vision-bg.bg-left {
+  left: 0;
+  z-index: 2;
+  -webkit-mask-image: linear-gradient(to right, black 40%, transparent 60%);
+  mask-image: linear-gradient(to right, black 40%, transparent 60%);
+}
+
+.vision-bg.bg-right {
+  right: 0;
+  z-index: 1;
+}
+
+.vision-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(12, 10, 9, 0.7); /* Dark overlay */
+  z-index: 3;
+}
+
+.vision-grid-content {
+  position: relative;
+  z-index: 4;
+  color: #fff;
+  width: 100%;
+  max-width: 1200px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  margin: 0 auto;
+}
+
+.vision-text-box {
+  background: rgba(12, 10, 9, 0.6);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 48px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.vision-text-box.delay-1 { 
+  animation-delay: 0.2s; 
+}
+
+.vision-text-box .vision-title {
+  font-size: clamp(2rem, 3vw, 2.5rem);
+  font-weight: 900;
+  margin-bottom: 16px;
+  color: #fff;
+}
+
+.vision-text-box .vision-para {
+  font-size: 1.1rem;
+  color: rgba(255,255,255,0.85);
+  line-height: 1.8;
+  margin-bottom: 32px;
+}
+
+.vision-list {
+  text-align: left;
+  margin-bottom: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 0;
+  list-style: none;
+}
+
+.vision-list li {
+  font-size: 1.05rem;
+  color: rgba(255,255,255,0.9);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.vision-list li span {
+  color: var(--amber);
+  font-weight: 800;
+}
+
+.vision-text-box .btn {
+  margin-top: auto;
+}
+
+/* ============================================================
+   RESPONSIVE: 1024px
+============================================================ */
+@media (max-width: 1024px) {
+  .history-card {
+    height: 400px;
+  }
+  .history-title {
+    font-size: 1.8rem;
+  }
+  
+  .founders-grid {
+    gap: 20px;
+  }
+  .founder-img-wrap {
+    width: 200px;
+    height: 200px;
+  }
+  
+  .testimonial-slider-wrap {
+    height: 360px;
+  }
+}
+
+/* ============================================================
+   RESPONSIVE: 768px
+============================================================ */
+@media (max-width: 768px) {
+  .history-wrapper {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  
+  .founders-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .test-card {
+    padding: 32px;
+  }
+  .testimonial-slider-wrap {
+    height: 380px;
+  }
+  .test-footer {
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  .test-stats {
+    gap: 32px;
+    flex-direction: column;
+  }
+  
+  .vision-text-box .vision-title {
+    font-size: 2.2rem;
+  }
+  .vision-bg {
+    background-attachment: scroll; /* Mobile bug fix for fixed bg */
+  }
+  .vision-grid-content {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .vision-bg.bg-left {
+    -webkit-mask-image: linear-gradient(to bottom, black 40%, transparent 60%);
+    mask-image: linear-gradient(to bottom, black 40%, transparent 60%);
+  }
+}
+
+/* ============================================================
+   RESPONSIVE: 425.6px
+============================================================ */
+@media (max-width: 425.6px) {
+  .about-hero-title {
+    font-size: 2rem;
+  }
+  .about-hero-btns {
+    flex-direction: column;
+    align-items: center;
+  }
+  .about-hero-btns .btn {
+    width: 100%;
+  }
+
+  .history-section, .founders-section, .testimonials-section, .vision-section {
+    padding: 72px 0;
+  }
+  
+  .founders-grid {
+    grid-template-columns: 1fr;
+  }
+  .founder-img-wrap {
+    width: 220px;
+    height: 220px;
+  }
+
+  .testimonial-slider-wrap {
+    height: 420px;
+  }
+  .test-title {
+    font-size: 1.3rem;
+  }
+  .test-para {
+    font-size: 1rem;
+  }
+
+  .vision-btns {
+    flex-direction: column;
+    align-items: center;
+  }
+  .vision-btns .btn {
+    width: 100%;
+  }
+
+}
+
+/* ============================================================
+   RESPONSIVE: 375.2px
+============================================================ */
+@media (max-width: 375.2px) {
+  .history-card {
+    height: 360px;
+  }
+  .history-title {
+    font-size: 1.5rem;
+  }
+  
+  .testimonial-slider-wrap {
+    height: 450px;
+  }
+  .test-card {
+    padding: 24px;
+  }
+  .test-nota {
+    font-size: 2.5rem;
+  }
+}
+
+/* Keyframes for Hero animations */
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
