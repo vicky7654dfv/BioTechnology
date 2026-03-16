@@ -1,0 +1,627 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="BioTechnology Blog - Insights, discoveries, and breakthroughs in life sciences, agriculture, and environmental research." />
+    <title>Blog - BioTechnology</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23D4A574'/%3E%3Cstop offset='100%25' style='stop-color:%23C17E3A'/%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx='50' cy='50' r='48' fill='url(%23g)'/%3E%3Cellipse cx='50' cy='30' rx='10' ry='16' fill='none' stroke='%23fff' stroke-width='3'/%3E%3Cellipse cx='50' cy='70' rx='10' ry='16' fill='none' stroke='%23fff' stroke-width='3'/%3E%3Cline x1='40' y1='38' x2='60' y2='38' stroke='%23fff' stroke-width='2.5'/%3E%3Cline x1='40' y1='50' x2='60' y2='50' stroke='%23fff' stroke-width='2.5'/%3E%3Cline x1='40' y1='62' x2='60' y2='62' stroke='%23fff' stroke-width='2.5'/%3E%3C/svg%3E" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+    <!-- Core Styles -->
+    <link rel="stylesheet" href="../css/style.css" />
+    <!-- Page-Specific Styles -->
+    <link rel="stylesheet" href="../css/blog.css" />
+  </head>
+  <body>
+
+    <!-- ===================== LOADER ===================== -->
+    <div class="loader" id="loader" aria-hidden="true" role="status">
+      <div class="loader-dna">
+        <div class="dna-strand">
+          <span></span><span></span><span></span>
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+      <p class="loader-text">BioTechnology</p>
+    </div>
+
+    <!-- ===================== HEADER ===================== -->
+    <header class="header" id="header">
+      <div class="header-container">
+        <div class="logo-section">
+          <a href="../index.html" class="logo-link" aria-label="BioTechnology Home">
+            <img src="../assets/Home1/Header/logo.webp" alt="BioTechnology Logo" class="logo" id="logo" />
+          </a>
+        </div>
+        <nav class="nav-desktop" id="navDesktop" aria-label="Main navigation">
+          <ul class="nav-list" role="list">
+            <li><a href="../index.html" class="nav-link">Home</a></li>
+            <li><a href="./about.html" class="nav-link">About Us</a></li>
+            <li><a href="./services.html" class="nav-link">Services</a></li>
+            <li><a href="./blog.html" class="nav-link active-nav">Blog</a></li>
+            <li><a href="./contact.html" class="nav-link">Contact</a></li>
+            <li><a href="./signup.html" class="nav-link nav-signup">Sign Up</a></li>
+            <li><a href="./login.html" class="nav-link nav-login">Login</a></li>
+          </ul>
+        </nav>
+        <div class="header-actions">
+          <button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark theme" title="Toggle Theme">
+            <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+            <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+          </button>
+          <button class="hamburger-toggle" id="hamburgerToggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="hamburgerMenu">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- ===================== HAMBURGER OVERLAY ===================== -->
+    <div class="hamburger-overlay" id="hamburgerOverlay" aria-hidden="true"></div>
+    <div class="hamburger-menu" id="hamburgerMenu" role="dialog" aria-modal="true" aria-label="Navigation menu">
+      <button class="hamburger-close" id="hamburgerClose" aria-label="Close navigation menu">&#x2715;</button>
+      <nav class="hamburger-nav" aria-label="Mobile navigation">
+        <ul class="hamburger-list" role="list">
+          <li><a href="../index.html" class="hamburger-link">Home</a></li>
+          <li><a href="./about.html" class="hamburger-link">About Us</a></li>
+          <li><a href="./services.html" class="hamburger-link">Services</a></li>
+          <li><a href="./blog.html" class="hamburger-link">Blog</a></li>
+          <li><a href="./contact.html" class="hamburger-link">Contact</a></li>
+          <li><a href="./signup.html" class="hamburger-link hm-signup">Sign Up</a></li>
+          <li><a href="./login.html" class="hamburger-link hm-login">Login</a></li>
+          <li class="hm-theme-row">
+            <button class="theme-toggle hm-theme-btn" id="hamburgerThemeToggle" aria-label="Toggle theme">
+              <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <circle cx="12" cy="12" r="5"></circle>
+                <line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                <line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line>
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+              </svg>
+              <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+              </svg>
+              <span class="hm-theme-label">Switch Theme</span>
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+    <!-- ===================== SECTION 1: BLOG HERO BANNER ===================== -->
+    <section class="blog-hero fade-section" aria-label="Blog Introduction">
+      <div class="blog-hero-bg">
+        <img src="../assets/About/heroBg1.webp" alt="" role="presentation" class="blog-hero-bg-img blog-hero-bg1" />
+        <img src="../assets/About/heroBg2.webp" alt="" role="presentation" class="blog-hero-bg-img blog-hero-bg2" />
+      </div>
+      <div class="blog-hero-overlay"></div>
+      <div class="blog-hero-content">
+        <h6 class="blog-hero-eyebrow fade-in">Latest Insights &amp; Research</h6>
+        <h1 class="blog-hero-title fade-in delay-1">The BioTech Knowledge Hub</h1>
+        <p class="blog-hero-para fade-in delay-2">Explore peer-reviewed discoveries, expert opinions, and breakthrough research across therapeutics, agriculture, and environmental science. Stay ahead with the latest from the frontlines of biotechnology.</p>
+        <div class="blog-hero-stats fade-in delay-2">
+          <div class="bh-stat">
+            <h2><span class="countup" data-target="320">0</span>+</h2>
+            <p>Published Articles</p>
+          </div>
+          <div class="bh-stat-divider" aria-hidden="true"></div>
+          <div class="bh-stat">
+            <h2><span class="countup" data-target="48">0</span></h2>
+            <p>Expert Authors</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== SECTION 2: ARTICLE GRID ===================== -->
+    <section class="blog-grid-section fade-section" aria-label="Blog Articles">
+      <div class="blog-container">
+
+        <!-- Section Header -->
+        <div class="blog-section-header fade-in">
+          <h1 class="blog-section-title">Explore Our Research Library</h1>
+          <h3 class="blog-section-sub">Curated knowledge from our global team of scientists</h3>
+          <p class="blog-section-desc">Filter by category or search by title to find the exact research that matters to you. Each piece is authored by domain experts and peer-reviewed for accuracy and scientific integrity.</p>
+        </div>
+
+        <!-- Search + Filter Controls -->
+        <div class="blog-controls fade-in">
+          <div class="blog-search-wrap">
+            <label for="blogSearch" class="sr-only">Search articles by title</label>
+            <svg class="blog-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input type="search" id="blogSearch" class="blog-search-input" placeholder="Search articles by title..." autocomplete="off" aria-label="Search articles by title" />
+          </div>
+          <div class="blog-filter-group" role="group" aria-label="Filter articles by category">
+            <button class="blog-filter-btn active" data-filter="all">All Articles</button>
+            <button class="blog-filter-btn" data-filter="medical">Medical &amp; Pharma</button>
+            <button class="blog-filter-btn" data-filter="agriculture">Agriculture</button>
+            <button class="blog-filter-btn" data-filter="environment">Environment</button>
+          </div>
+        </div>
+
+        <!-- No Results -->
+        <p class="blog-no-results" id="blogNoResults" role="status" aria-live="polite" style="display:none;">No articles found matching your search. Try a different keyword or category.</p>
+
+        <!-- 8 Article Cards -->
+        <div class="blog-grid" id="blogGrid">
+
+          <!-- Card 1 -->
+          <article class="blog-card fade-in" data-category="medical" data-title="crispr gene editing in clinical oncology">
+            <div class="blog-card-img-wrap">
+              <img src="../assets/Blog/111.webp" alt="CRISPR Gene Editing research" class="blog-card-img" loading="lazy" />
+              <div class="blog-card-img-overlay"></div>
+              <span class="blog-card-cat-tag">Medical &amp; Pharma</span>
+              <!-- Hovered -->
+              <div class="blog-card-hover-panel">
+                <p class="blog-card-hover-desc">Our oncology specialists examine CRISPR-modified T-cell therapies, clinical response rates, and near-term FDA approval timelines using the latest Phase II data.</p>
+                <div class="blog-card-btns">
+                  <a href="./error.html" class="btn btn-amber-solid btn-sm">Read Article</a>
+                  <a href="./error.html" class="btn btn-secondary btn-sm">Save</a>
+                </div>
+              </div>
+            </div>
+            <div class="blog-card-body">
+              <h1 class="blog-card-title">CRISPR Gene Editing in Clinical Oncology</h1>
+              <p class="blog-card-excerpt">A deep dive into how CRISPR-Cas9 is reshaping targeted cancer therapies and opening new frontiers in precision oncology.</p>
+              <div class="blog-card-meta">
+                <span class="blog-meta-date">Mar 10, 2025</span>
+                <span class="blog-meta-dot" aria-hidden="true">·</span>
+                <span class="blog-meta-read">8 min read</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 2 -->
+          <article class="blog-card fade-in delay-1" data-category="agriculture" data-title="drought-resistant crops in sub-saharan africa">
+            <div class="blog-card-img-wrap">
+              <img src="../assets/Blog/222.webp" alt="Drought-Resistant Agriculture" class="blog-card-img" loading="lazy" />
+              <div class="blog-card-img-overlay"></div>
+              <span class="blog-card-cat-tag">Agriculture</span>
+              <div class="blog-card-hover-panel">
+                <p class="blog-card-hover-desc">Profiling our field trials in Kenya, Ethiopia, and Senegal — yield increases, water reduction benchmarks, and farmer adoption rates over three growing seasons.</p>
+                <div class="blog-card-btns">
+                  <a href="./error.html" class="btn btn-amber-solid btn-sm">Read Article</a>
+                  <a href="./error.html" class="btn btn-secondary btn-sm">Save</a>
+                </div>
+              </div>
+            </div>
+            <div class="blog-card-body">
+              <h1 class="blog-card-title">Drought-Resistant Crops in Sub-Saharan Africa</h1>
+              <p class="blog-card-excerpt">How engineered seed varieties are combating food insecurity in the most water-stressed regions of the world.</p>
+              <div class="blog-card-meta">
+                <span class="blog-meta-date">Feb 28, 2025</span>
+                <span class="blog-meta-dot" aria-hidden="true">·</span>
+                <span class="blog-meta-read">6 min read</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 3 -->
+          <article class="blog-card fade-in delay-2" data-category="environment" data-title="bioremediation of heavy metal contaminated soils">
+            <div class="blog-card-img-wrap">
+              <img src="../assets/Blog/333.webp" alt="Bioremediation soil science" class="blog-card-img" loading="lazy" />
+              <div class="blog-card-img-overlay"></div>
+              <span class="blog-card-cat-tag">Environment</span>
+              <div class="blog-card-hover-panel">
+                <p class="blog-card-hover-desc">A 3-year remediation study at a decommissioned copper mine shows 87% reduction in toxic metal bioavailability through bacterial and fungal inoculants.</p>
+                <div class="blog-card-btns">
+                  <a href="./error.html" class="btn btn-amber-solid btn-sm">Read Article</a>
+                  <a href="./error.html" class="btn btn-secondary btn-sm">Save</a>
+                </div>
+              </div>
+            </div>
+            <div class="blog-card-body">
+              <h1 class="blog-card-title">Bioremediation of Heavy Metal Contaminated Soils</h1>
+              <p class="blog-card-excerpt">Applying engineered microbial consortia to industrial mine sites to neutralize arsenic, lead, and cadmium safely.</p>
+              <div class="blog-card-meta">
+                <span class="blog-meta-date">Feb 14, 2025</span>
+                <span class="blog-meta-dot" aria-hidden="true">·</span>
+                <span class="blog-meta-read">10 min read</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 4 -->
+          <article class="blog-card fade-in" data-category="medical" data-title="next-generation mrna vaccine platforms">
+            <div class="blog-card-img-wrap">
+              <img src="../assets/Blog/444.webp" alt="mRNA Vaccine research" class="blog-card-img" loading="lazy" />
+              <div class="blog-card-img-overlay"></div>
+              <span class="blog-card-cat-tag">Medical &amp; Pharma</span>
+              <div class="blog-card-hover-panel">
+                <p class="blog-card-hover-desc">Reviewing ionizable lipid candidates, self-amplifying RNA constructs, and thermostable adjuvants expanding vaccine accessibility in low-resource settings.</p>
+                <div class="blog-card-btns">
+                  <a href="./error.html" class="btn btn-amber-solid btn-sm">Read Article</a>
+                  <a href="./error.html" class="btn btn-secondary btn-sm">Save</a>
+                </div>
+              </div>
+            </div>
+            <div class="blog-card-body">
+              <h1 class="blog-card-title">Next-Generation mRNA Vaccine Platforms</h1>
+              <p class="blog-card-excerpt">How second-generation lipid nanoparticle delivery systems are improving mRNA stability and immune response rates.</p>
+              <div class="blog-card-meta">
+                <span class="blog-meta-date">Jan 22, 2025</span>
+                <span class="blog-meta-dot" aria-hidden="true">·</span>
+                <span class="blog-meta-read">7 min read</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 5 -->
+          <article class="blog-card fade-in delay-1" data-category="agriculture" data-title="precision fermentation and the future of protein">
+            <div class="blog-card-img-wrap">
+              <img src="../assets/Blog/555.webp" alt="Precision Fermentation" class="blog-card-img" loading="lazy" />
+              <div class="blog-card-img-overlay"></div>
+              <span class="blog-card-cat-tag">Agriculture</span>
+              <div class="blog-card-hover-panel">
+                <p class="blog-card-hover-desc">Comparing five producer organisms across methane footprints, amino acid profiles, and cost-per-gram trajectories to assess viability as a global dietary staple by 2030.</p>
+                <div class="blog-card-btns">
+                  <a href="./error.html" class="btn btn-amber-solid btn-sm">Read Article</a>
+                  <a href="./error.html" class="btn btn-secondary btn-sm">Save</a>
+                </div>
+              </div>
+            </div>
+            <div class="blog-card-body">
+              <h1 class="blog-card-title">Precision Fermentation &amp; the Future of Protein</h1>
+              <p class="blog-card-excerpt">How yeast and bacterial fermenters are replacing livestock as primary protein sources at commercial and global scale.</p>
+              <div class="blog-card-meta">
+                <span class="blog-meta-date">Jan 8, 2025</span>
+                <span class="blog-meta-dot" aria-hidden="true">·</span>
+                <span class="blog-meta-read">9 min read</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 6 -->
+          <article class="blog-card fade-in delay-2" data-category="environment" data-title="algae-based carbon capture at industrial scale">
+            <div class="blog-card-img-wrap">
+              <img src="../assets/Blog/666.webp" alt="Algae Carbon Capture" class="blog-card-img" loading="lazy" />
+              <div class="blog-card-img-overlay"></div>
+              <span class="blog-card-cat-tag">Environment</span>
+              <div class="blog-card-hover-panel">
+                <p class="blog-card-hover-desc">Analyzing pilot installations at three industrial emitters, benchmarking alga CO₂ fixation against direct air capture, BECCS, and ocean iron fertilization.</p>
+                <div class="blog-card-btns">
+                  <a href="./error.html" class="btn btn-amber-solid btn-sm">Read Article</a>
+                  <a href="./error.html" class="btn btn-secondary btn-sm">Save</a>
+                </div>
+              </div>
+            </div>
+            <div class="blog-card-body">
+              <h1 class="blog-card-title">Algae-Based Carbon Capture at Industrial Scale</h1>
+              <p class="blog-card-excerpt">How photobioreactor arrays are sequestering atmospheric CO₂ while producing high-value biomass byproducts.</p>
+              <div class="blog-card-meta">
+                <span class="blog-meta-date">Dec 19, 2024</span>
+                <span class="blog-meta-dot" aria-hidden="true">·</span>
+                <span class="blog-meta-read">11 min read</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 7 -->
+          <article class="blog-card fade-in" data-category="medical" data-title="synthetic biology and programmable therapeutics">
+            <div class="blog-card-img-wrap">
+              <img src="../assets/Blog/777.webp" alt="Synthetic Biology lab" class="blog-card-img" loading="lazy" />
+              <div class="blog-card-img-overlay"></div>
+              <span class="blog-card-cat-tag">Medical &amp; Pharma</span>
+              <div class="blog-card-hover-panel">
+                <p class="blog-card-hover-desc">Presenting two proof-of-concept genetic switch designs for glucose-responsive insulin production and tumor-triggered apoptosis inducers in live trials.</p>
+                <div class="blog-card-btns">
+                  <a href="./error.html" class="btn btn-amber-solid btn-sm">Read Article</a>
+                  <a href="./error.html" class="btn btn-secondary btn-sm">Save</a>
+                </div>
+              </div>
+            </div>
+            <div class="blog-card-body">
+              <h1 class="blog-card-title">Synthetic Biology &amp; Programmable Therapeutics</h1>
+              <p class="blog-card-excerpt">Designing genetic circuits that sense disease biomarkers and autonomously activate targeted drug release responses.</p>
+              <div class="blog-card-meta">
+                <span class="blog-meta-date">Dec 5, 2024</span>
+                <span class="blog-meta-dot" aria-hidden="true">·</span>
+                <span class="blog-meta-read">8 min read</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 8 -->
+          <article class="blog-card fade-in delay-1" data-category="agriculture" data-title="nitrogen fixation in non-leguminous crops">
+            <div class="blog-card-img-wrap">
+              <img src="../assets/Blog/888.webp" alt="Nitrogen Fixation in Crops" class="blog-card-img" loading="lazy" />
+              <div class="blog-card-img-overlay"></div>
+              <span class="blog-card-cat-tag">Agriculture</span>
+              <div class="blog-card-hover-panel">
+                <p class="blog-card-hover-desc">Wheat and rice trials show 60% reduction in nitrogen fertilizer input when inoculated with our proprietary Azotobacter consortia — no yield compromise observed across three crop cycles.</p>
+                <div class="blog-card-btns">
+                  <a href="./error.html" class="btn btn-amber-solid btn-sm">Read Article</a>
+                  <a href="./error.html" class="btn btn-secondary btn-sm">Save</a>
+                </div>
+              </div>
+            </div>
+            <div class="blog-card-body">
+              <h1 class="blog-card-title">Nitrogen Fixation in Non-Leguminous Crops</h1>
+              <p class="blog-card-excerpt">Engineering root microbiomes to enable atmospheric nitrogen fixation in cereals, eliminating synthetic fertilizer dependency.</p>
+              <div class="blog-card-meta">
+                <span class="blog-meta-date">Nov 28, 2024</span>
+                <span class="blog-meta-dot" aria-hidden="true">·</span>
+                <span class="blog-meta-read">7 min read</span>
+              </div>
+            </div>
+          </article>
+
+        </div><!-- /blog-grid -->
+
+        <!-- Section Footer CTA -->
+        <div class="blog-section-footer fade-in">
+          <h3 class="blog-footer-sub">Can't find what you're looking for?</h3>
+          <p class="blog-footer-desc">Browse our complete archive or reach out to our editorial team directly for specialized reports and whitepapers tailored to your research domain.</p>
+          <div class="blog-footer-btns">
+            <a href="./error.html" class="btn btn-amber-solid">View Full Archive</a>
+            <a href="./error.html" class="btn btn-secondary">Contact Editorial Team</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===================== FOOTER ===================== -->
+    <footer class="footer" id="footer">
+      <div class="footer-container">
+        <div class="footer-col footer-col-brand">
+          <a href="../index.html" class="footer-logo-link" aria-label="BioTechnology Home">
+            <img src="../assets/Home1/Header/logo.webp" alt="BioTechnology Logo" class="footer-logo" id="footerLogo" />
+          </a>
+          <p class="footer-brand-para">BioTechnology is dedicated to advancing human health through innovative research, breakthrough therapies, and compassionate care. We believe every life deserves the best science can offer.</p>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-col-heading">Company</h4>
+          <ul class="footer-col-links" role="list">
+            <li><a href="./about.html" class="footer-link">About</a></li>
+            <li><a href="./services.html" class="footer-link">Services</a></li>
+            <li><a href="./contact.html" class="footer-link">Contact</a></li>
+            <li><a href="./login.html" class="footer-link">Login</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-col-heading">Research</h4>
+          <ul class="footer-col-links" role="list">
+            <li><a href="./error.html" class="footer-link">Clinical Trials</a></li>
+            <li><a href="./error.html" class="footer-link">Partnerships</a></li>
+            <li><a href="./error.html" class="footer-link">Publications</a></li>
+            <li><a href="./error.html" class="footer-link">Case Studies</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-col-heading">Newsletter</h4>
+          <p class="footer-newsletter-desc">Stay updated with the latest research breakthroughs and BioTech innovations.</p>
+          <form class="footer-newsletter-form" id="newsletterForm" novalidate>
+            <div class="footer-newsletter-row">
+              <label for="newsletterEmail" class="sr-only">Email address</label>
+              <input type="email" id="newsletterEmail" name="email" placeholder="Your email address" class="footer-newsletter-input" autocomplete="email" required />
+              <button type="submit" class="footer-newsletter-btn" aria-label="Subscribe to newsletter">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+              </button>
+            </div>
+            <p class="footer-newsletter-err" id="newsletterErr" role="alert" aria-live="polite"></p>
+          </form>
+          <div class="footer-social" aria-label="Social media links">
+            <a href="./error.html" class="social-btn" aria-label="Facebook" title="Facebook"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
+            <a href="./error.html" class="social-btn" aria-label="Twitter/X" title="Twitter/X"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 4l16 16m0-16L4 20" stroke="currentColor" stroke-width="2.5" fill="none"></path></svg></a>
+            <a href="./error.html" class="social-btn" aria-label="LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"></path><circle cx="4" cy="4" r="2"></circle></svg></a>
+            <a href="./error.html" class="social-btn" aria-label="Instagram" title="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-bottom-inner">
+          <p class="footer-copy">&copy; 2025 BioTechnology Inc. All rights reserved. Advancing Human Health Worldwide.</p>
+          <nav class="footer-bottom-links" aria-label="Legal links">
+            <a href="./error.html" class="footer-bottom-link">Privacy Policy</a>
+            <span aria-hidden="true">·</span>
+            <a href="./error.html" class="footer-bottom-link">Terms of Service</a>
+            <span aria-hidden="true">·</span>
+            <a href="./error.html" class="footer-bottom-link">Cookie Policy</a>
+            <span aria-hidden="true">·</span>
+            <a href="./error.html" class="footer-bottom-link">Sitemap</a>
+          </nav>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ===================== SCROLL TO TOP ===================== -->
+    <button class="scroll-to-top" id="scrollToTop" aria-label="Scroll to top of page" title="Scroll to top">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+        <polyline points="18 15 12 9 6 15"></polyline>
+      </svg>
+    </button>
+
+    <!-- ===================== SCRIPTS ===================== -->
+    <script>
+      /* 1. LOADER */
+      (function () {
+        var loader = document.getElementById('loader');
+        function hideLoader() {
+          loader.classList.add('fade-out');
+          setTimeout(function () { loader.style.display = 'none'; loader.setAttribute('aria-hidden', 'true'); }, 600);
+        }
+        window.addEventListener('load', function () { setTimeout(hideLoader, 600); });
+        window.addEventListener('pageshow', function (e) {
+          if (e.persisted) { loader.style.display = 'none'; loader.setAttribute('aria-hidden', 'true'); }
+        });
+      })();
+
+      /* 2. THEME TOGGLE */
+      (function () {
+        var html = document.documentElement;
+        var saved = localStorage.getItem('bt-theme') || 'light';
+        html.setAttribute('data-theme', saved);
+        document.querySelectorAll('.theme-toggle').forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            var next = html.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+            html.setAttribute('data-theme', next);
+            localStorage.setItem('bt-theme', next);
+          });
+        });
+      })();
+
+      /* 3. HAMBURGER MENU */
+      (function () {
+        var toggle = document.getElementById('hamburgerToggle');
+        var menu = document.getElementById('hamburgerMenu');
+        var overlay = document.getElementById('hamburgerOverlay');
+        var closeBtn = document.getElementById('hamburgerClose');
+        function openMenu() { menu.classList.add('open'); overlay.classList.add('open'); toggle.setAttribute('aria-expanded', 'true'); document.body.style.overflow = 'hidden'; }
+        function closeMenu() { menu.classList.remove('open'); overlay.classList.remove('open'); toggle.setAttribute('aria-expanded', 'false'); document.body.style.overflow = ''; }
+        toggle.addEventListener('click', function (e) { e.stopPropagation(); menu.classList.contains('open') ? closeMenu() : openMenu(); });
+        closeBtn.addEventListener('click', closeMenu);
+        overlay.addEventListener('click', closeMenu);
+        menu.querySelectorAll('.hamburger-link').forEach(function (link) { link.addEventListener('click', closeMenu); });
+        document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && menu.classList.contains('open')) closeMenu(); });
+      })();
+
+      /* 4. HEADER SCROLL */
+      (function () {
+        var header = document.getElementById('header');
+        window.addEventListener('scroll', function () {
+          header.classList.toggle('scrolled', window.scrollY > 50);
+        });
+      })();
+
+      /* 5. SCROLL TO TOP */
+      (function () {
+        var btn = document.getElementById('scrollToTop');
+        window.addEventListener('scroll', function () { btn.classList.toggle('visible', window.scrollY > 400); });
+        btn.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+      })();
+
+      /* 6. FADE-IN ON SCROLL */
+      (function () {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) { entry.target.classList.add('visible'); io.unobserve(entry.target); }
+          });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+        document.querySelectorAll('.fade-in').forEach(function (el) { io.observe(el); });
+
+        var sio = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) { entry.target.classList.add('section-visible'); sio.unobserve(entry.target); }
+          });
+        }, { threshold: 0.06 });
+        document.querySelectorAll('.fade-section').forEach(function (el) { sio.observe(el); });
+      })();
+
+      /* 7. COUNTUP */
+      (function () {
+        var cio = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              var el = entry.target;
+              if (el.dataset.counted) return;
+              el.dataset.counted = '1';
+              var target = parseInt(el.getAttribute('data-target'), 10);
+              var duration = 1800; var start = null;
+              function step(ts) {
+                if (!start) start = ts;
+                var progress = Math.min((ts - start) / duration, 1);
+                el.textContent = Math.floor((1 - Math.pow(1 - progress, 3)) * target).toLocaleString();
+                if (progress < 1) requestAnimationFrame(step);
+                else el.textContent = target.toLocaleString();
+              }
+              requestAnimationFrame(step);
+              cio.unobserve(el);
+            }
+          });
+        }, { threshold: 0.5 });
+        document.querySelectorAll('.countup').forEach(function (el) { cio.observe(el); });
+      })();
+
+      /* 8. NEWSLETTER FORM */
+      (function () {
+        var form = document.getElementById('newsletterForm');
+        var emailInput = document.getElementById('newsletterEmail');
+        var errEl = document.getElementById('newsletterErr');
+        if (!form) return;
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+          var val = emailInput.value.trim();
+          if (!val || !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(val)) {
+            errEl.textContent = 'Please enter a valid email address.'; errEl.style.color = '#e74c3c'; emailInput.focus(); return;
+          }
+          window.location.href = './error.html';
+        });
+        emailInput.addEventListener('input', function () { errEl.textContent = ''; });
+      })();
+
+      /* 9. PAGE LEAVE LOADER */
+      (function () {
+        document.querySelectorAll('a[href]').forEach(function (a) {
+          var href = a.getAttribute('href');
+          if (href && !href.startsWith('#') && !href.startsWith('mailto') && !href.startsWith('tel') && !a.getAttribute('target')) {
+            a.addEventListener('click', function () {
+              var loader = document.getElementById('loader');
+              if (loader) { loader.style.display = 'flex'; loader.style.opacity = '1'; loader.classList.remove('fade-out'); }
+            });
+          }
+        });
+      })();
+
+      /* 10. BLOG SEARCH + FILTER */
+      (function () {
+        var searchInput = document.getElementById('blogSearch');
+        var filterBtns = document.querySelectorAll('.blog-filter-btn');
+        var cards = document.querySelectorAll('.blog-card');
+        var noResults = document.getElementById('blogNoResults');
+        var activeFilter = 'all';
+
+        function applyFilters() {
+          var query = searchInput.value.trim().toLowerCase();
+          var count = 0;
+          cards.forEach(function (card) {
+            var title = (card.getAttribute('data-title') || '').toLowerCase();
+            var cat = (card.getAttribute('data-category') || '').toLowerCase();
+            var matchSearch = query === '' || title.includes(query);
+            var matchFilter = activeFilter === 'all' || cat === activeFilter;
+            if (matchSearch && matchFilter) {
+              card.style.display = 'flex';
+              setTimeout(function () { card.style.opacity = '1'; card.style.transform = 'translateY(0)'; }, 30);
+              count++;
+            } else {
+              card.style.opacity = '0'; card.style.transform = 'translateY(20px)';
+              setTimeout(function () { card.style.display = 'none'; }, 280);
+            }
+          });
+          noResults.style.display = count === 0 ? 'block' : 'none';
+        }
+
+        filterBtns.forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            filterBtns.forEach(function (b) { b.classList.remove('active'); });
+            btn.classList.add('active');
+            activeFilter = btn.getAttribute('data-filter');
+            applyFilters();
+          });
+        });
+
+        if (searchInput) searchInput.addEventListener('input', applyFilters);
+      })();
+    </script>
+  </body>
+</html>
