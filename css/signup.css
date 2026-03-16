@@ -356,6 +356,43 @@ body {
     color: #ef4444;
 }
 
+/* Password Input Wrapper for Toggle */
+.password-input-wrap {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.password-input-wrap input {
+    padding-right: 48px; /* Leave space for icon */
+}
+
+.password-toggle-btn {
+    position: absolute;
+    right: 16px;
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px;
+    transition: color var(--tf-fast);
+    outline: none;
+}
+
+.password-toggle-btn:hover,
+.password-toggle-btn:focus-visible {
+    color: var(--amber-main);
+}
+
+.password-toggle-btn svg {
+    width: 20px;
+    height: 20px;
+}
+
 .form-group input, 
 .form-group select {
     background: var(--bg-input);
