@@ -613,9 +613,9 @@ transform: none;
 }
 
 /* ============================================================
-   RESPONSIVE: 425.6px
+   RESPONSIVE: 430.4px
 ============================================================ */
-@media (max-width: 425.6px) {
+@media (max-width: 430.4px) {
   .about-hero-title {
     font-size: 2rem;
   }
@@ -657,6 +657,12 @@ transform: none;
     width: 100%;
   }
 
+  /* Footer Alignment */
+  .footer { padding: 52px 16px 0; }
+  .footer-container { grid-template-columns: 1fr; gap: 28px; }
+  .footer-col-brand { grid-column: auto; }
+  .footer-logo { height: 40px; }
+  .footer-social { flex-wrap: wrap; }
 }
 
 /* ============================================================
