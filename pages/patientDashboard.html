@@ -335,6 +335,15 @@
             });
         });
 
+        // Handle Back/Forward Cache (BFCache) to hide loader when navigating back
+        window.addEventListener('pageshow', (e) => {
+            if (e.persisted) {
+                loader.style.display = 'none';
+                loader.classList.add('fade-out');
+                loader.setAttribute('aria-hidden', 'true');
+            }
+        });
+
         // 2. Theme Toggle Global Sync
         const themeToggleBtn = document.getElementById('theme-toggle-btn');
         const htmlElement = document.documentElement;
