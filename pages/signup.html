@@ -208,7 +208,7 @@
          */
         const htmlElement = document.documentElement;
         const themeToggle = document.getElementById('themeToggle');
-        const savedTheme = localStorage.getItem('biotech-theme') || 'dark';
+        const savedTheme = localStorage.getItem('bt-theme') || 'light';
         
         htmlElement.setAttribute('data-theme', savedTheme);
 
@@ -216,7 +216,7 @@
             const currentTheme = htmlElement.getAttribute('data-theme');
             const newTheme = currentTheme === 'light' ? 'dark' : 'light';
             htmlElement.setAttribute('data-theme', newTheme);
-            localStorage.setItem('biotech-theme', newTheme);
+            localStorage.setItem('bt-theme', newTheme);
         });
 
         /**

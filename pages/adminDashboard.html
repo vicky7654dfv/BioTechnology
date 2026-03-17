@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Portal | BioTechnology</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23D4A574'/%3E%3Cstop offset='100%25' style='stop-color:%23C17E3A'/%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx='50' cy='50' r='48' fill='url(%23g)'/%3E%3Cellipse cx='50' cy='30' rx='10' ry='16' fill='none' stroke='%23fff' stroke-width='3'/%3E%3Cellipse cx='50' cy='70' rx='10' ry='16' fill='none' stroke='%23fff' stroke-width='3'/%3E%3Cline x1='40' y1='38' x2='60' y2='38' stroke='%23fff' stroke-width='2.5'/%3E%3Cline x1='40' y1='50' x2='60' y2='50' stroke='%23fff' stroke-width='2.5'/%3E%3Cline x1='40' y1='62' x2='60' y2='62' stroke='%23fff' stroke-width='2.5'/%3E%3C/svg%3E" />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- FontAwesome Library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/adminDashboard.css">
+</head>
+<body>
+    <!-- Theme Initializer -->
+    <script>
+        const savedTheme = localStorage.getItem('bt-theme') || 'light';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+    </script>
+
+    <!-- Global Loader -->
+    <div class="loader" id="pageLoader" aria-hidden="true" role="status">
+        <div class="loader-dna">
+            <div class="dna-strand">
+                <span></span><span></span><span></span>
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <p class="loader-text" id="loaderText">BioTechnology</p>
+    </div>
+
+    <div class="dash-layout">
+        
+        <!-- SIDE NAVIGATION -->
+        <aside class="dash-sidebar" id="dashSidebar">
+            <div class="sidebar-logo">
+                <a href="../index.html">
+                    <img src="../assets/Home1/Header/logo.webp" alt="BioTechnology Logo" class="site-logo">
+                </a>
+            </div>
+            
+            <nav class="sidebar-nav" id="sidebarNav">
+                <button class="nav-item active" data-target="dashboard" aria-label="Go to Dashboard">
+                    <i class="fa-solid fa-chart-pie"></i> <span>Dashboard</span>
+                </button>
+                <button class="nav-item" data-target="lab-management" aria-label="Go to Lab Management">
+                    <i class="fa-solid fa-microscope"></i> <span>Lab Management</span>
+                </button>
+                <button class="nav-item" data-target="research-projects" aria-label="Go to Research Projects">
+                    <i class="fa-solid fa-flask"></i> <span>Research Projects</span>
+                </button>
+                <button class="nav-item" data-target="ai-analysis" aria-label="Go to AI Analysis">
+                    <i class="fa-solid fa-network-wired"></i> <span>AI Analysis</span>
+                </button>
+                <button class="nav-item" data-target="reports" aria-label="Go to Reports">
+                    <i class="fa-solid fa-file-waveform"></i> <span>Reports</span>
+                </button>
+                <button class="nav-item" data-target="settings" aria-label="Go to Settings">
+                    <i class="fa-solid fa-gear"></i> <span>Settings</span>
+                </button>
+            </nav>
+            
+            <div class="sidebar-quick-stats">
+                <h4>Quick Stats</h4>
+                <div class="q-stat"><span>Active Projects</span> <strong>12</strong></div>
+                <div class="q-stat"><span>Pending Samples</span> <strong>5</strong></div>
+                <div class="q-stat"><span>Completed Tests</span> <strong>342</strong></div>
+            </div>
+        </aside>
+
+        <!-- MAIN CONTENT WRAPPER -->
+        <div class="dash-main">
+            
+            <!-- TOPBAR -->
+            <header class="dash-topbar">
+                <a href="../index.html" class="mobile-top-logo"><img src="../assets/Home1/Header/logo.webp" alt="BioTechnology Logo"></a>
+                
+                <form class="topbar-search" onsubmit="event.preventDefault();">
+                    <label for="adminSearch" class="sr-only">Search...</label>
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" id="adminSearch" name="topSearch" placeholder="Search by Dept..." class="search-input" autocomplete="off">
+                </form>
+                
+                <div class="topbar-actions">
+                    <button class="btn-dash outline-glow exit-btn" onclick="location.href='../index.html'" aria-label="Logout"><i class="fa-solid fa-power-off"></i> <span class="exit-text">Logout</span></button>
+                    <button class="icon-btn" aria-label="Notifications" onclick="location.href='error.html'">
+                        <i class="fa-regular fa-bell"></i>
+                        <span class="notify-badge">3</span>
+                    </button>
+                    <button id="theme-toggle-btn" class="icon-btn" aria-label="Toggle Theme">
+                        <i class="fa-solid fa-moon"></i>
+                    </button>
+                    <div class="user-profile" onclick="location.href='error.html'">
+                        <div class="user-avatar"><i class="fa-solid fa-user-doctor"></i></div>
+                        <div class="user-info">
+                            <span class="user-name" id="displayEmail">Admin</span>
+                            <span class="user-role">Super Admin</span>
+                        </div>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                </div>
+            </header>
+
+            <!-- CONTENT SECTIONS -->
+            <main class="dash-content-area">
+                
+                <!-- 1. DASHBOARD OVERVIEW -->
+                <section id="dashboard" class="dash-section active">
+                    <div class="section-header-flex">
+                        <div class="section-text">
+                            <h2>Admin Dashboard</h2>
+                            <p class="subtitle">System overview and analytics</p>
+                        </div>
+                        <button class="btn-dash outline-glow" aria-label="Export Data" onclick="location.href='error.html'">Export Data</button>
+                    </div>
+
+                    <div class="stat-cards">
+                        <div class="stat-card">
+                            <div class="stat-icon-wrapper soft-blue">
+                                <i class="fa-solid fa-users"></i>
+                            </div>
+                            <div class="stat-details">
+                                <span class="stat-label">Total Users</span>
+                                <h3>1,247</h3>
+                                <p class="trend text-success"><i class="fa-solid fa-arrow-trend-up"></i> +12%</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon-wrapper soft-purple">
+                                <i class="fa-solid fa-vials"></i>
+                            </div>
+                            <div class="stat-details">
+                                <span class="stat-label">Active Samples</span>
+                                <h3>1,247</h3>
+                                <p class="trend text-success"><i class="fa-solid fa-arrow-trend-up"></i> +8%</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon-wrapper soft-green">
+                                <i class="fa-solid fa-chart-line"></i>
+                            </div>
+                            <div class="stat-details">
+                                <span class="stat-label">AI Accuracy</span>
+                                <h3>96.8%</h3>
+                                <p class="trend text-success"><i class="fa-solid fa-arrow-trend-up"></i> +2.3%</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon-wrapper soft-amber">
+                                <i class="fa-solid fa-dollar-sign"></i>
+                            </div>
+                            <div class="stat-details">
+                                <span class="stat-label">Monthly Revenue</span>
+                                <h3>$1,25,000</h3>
+                                <p class="trend text-success"><i class="fa-solid fa-arrow-trend-up"></i> +15%</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="charts-grid">
+                        <div class="chart-box">
+                            <div class="box-header">
+                                <div>
+                                    <h3>Revenue Trend</h3>
+                                    <p class="subtitle">Last 6 months performance</p>
+                                </div>
+                                <button class="icon-btn" aria-label="Settings" onclick="location.href='error.html'"><i class="fa-solid fa-ellipsis"></i></button>
+                            </div>
+                            <div class="canvas-container">
+                                <canvas id="revenueChart"></canvas>
+                            </div>
+                        </div>
+
+                        <div class="chart-box">
+                            <div class="box-header">
+                                <div>
+                                    <h3>Department Distribution</h3>
+                                    <p class="subtitle">Resource allocation by department</p>
+                                </div>
+                            </div>
+                            <div class="canvas-container ring-chart-wrapper">
+                                <canvas id="departmentChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 2. LAB MANAGEMENT -->
+                <section id="lab-management" class="dash-section">
+                    <div class="section-header-flex">
+                        <div class="section-text">
+                            <h2>Lab Management</h2>
+                            <p class="subtitle">Track processing samples and testing status.</p>
+                        </div>
+                        <button class="btn-dash" aria-label="Add new sample" onclick="location.href='error.html'"><i class="fa-solid fa-plus" style="margin-right: 8px;"></i> Accession Sample</button>
+                    </div>
+
+                    <div class="creative-widget table-widget">
+                        <div class="list-header">
+                            <h3>Current Sample Tracking</h3>
+                            <button class="btn-dash outline-glow" aria-label="View all logs" onclick="location.href='error.html'">Full Batch Log</button>
+                        </div>
+                        
+                        <div class="job-card-rows">
+                            <!-- Rows mapped from reference -->
+                            <div class="job-row">
+                                <div class="job-main-info">
+                                    <h4>Sample #GN-2092</h4>
+                                    <span>Whole Exome Sequencing</span>
+                                </div>
+                                <div class="job-dept">Genomics Dept.</div>
+                                <div class="job-stats"><i class="fa-regular fa-clock"></i> Est. 4 Hours</div>
+                                <div class="job-status"><span class="badge badge-progress">Sequencing</span></div>
+                                <div class="job-action"><button class="btn-dash" aria-label="View Sample" onclick="location.href='error.html'">View</button></div>
+                            </div>
+                            <div class="job-row">
+                                <div class="job-main-info">
+                                    <h4>Sample #ONCO-1104</h4>
+                                    <span>Tumor Profiling Panel</span>
+                                </div>
+                                <div class="job-dept">Oncology Dept.</div>
+                                <div class="job-stats"><i class="fa-regular fa-clock"></i> Extracted</div>
+                                <div class="job-status"><span class="badge badge-pending">Queued</span></div>
+                                <div class="job-action"><button class="btn-dash outline-glow" aria-label="Manage Sample" onclick="location.href='error.html'">Manage</button></div>
+                            </div>
+                            <div class="job-row">
+                                <div class="job-main-info">
+                                    <h4>Sample #CL-0442</h4>
+                                    <span>Infectious Disease Panel</span>
+                                </div>
+                                <div class="job-dept">Clinical Diagnostics</div>
+                                <div class="job-stats"><i class="fa-regular fa-check-circle"></i> Validated</div>
+                                <div class="job-status"><span class="badge badge-completed">Completed</span></div>
+                                <div class="job-action"><button class="btn-dash outline-glow" style="border-color: var(--success-color); color: var(--success-color);" aria-label="Sign out report" onclick="location.href='error.html'">Sign Out</button></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 3. RESEARCH PROJECTS -->
+                <section id="research-projects" class="dash-section">
+                    <div class="section-header-flex">
+                        <div class="section-text">
+                            <h2>Research Projects</h2>
+                            <p class="subtitle">Monitor progress of ongoing clinical trials and R&D.</p>
+                        </div>
+                        <button class="btn-dash outline-glow" aria-label="Create grant" onclick="location.href='error.html'">New Project Proposal</button>
+                    </div>
+                    
+                    <div class="charts-grid">
+                        <div class="creative-widget" style="padding: 24px;">
+                            <h3 style="margin-bottom: 20px;">CRISPR Trial Phases</h3>
+                            <div class="horizontal-bars">
+                                <div class="h-bar-item">
+                                    <div class="h-bar-info"><span>Phase I: Toxicology</span><span>Completed</span></div>
+                                    <div class="h-bar-track"><div class="h-bar-fill bg-success" style="width: 100%;"></div></div>
+                                </div>
+                                <div class="h-bar-item mt-3">
+                                    <div class="h-bar-info"><span>Phase II: Biomarker</span><span>Active</span></div>
+                                    <div class="h-bar-track"><div class="h-bar-fill bg-info" style="width: 60%;"></div></div>
+                                </div>
+                                <div class="h-bar-item mt-3">
+                                    <div class="h-bar-info"><span>Phase III: Population Scale</span><span>Pending FDA Approval</span></div>
+                                    <div class="h-bar-track"><div class="h-bar-fill bg-warn" style="width: 10%;"></div></div>
+                                </div>
+                                <div class="h-bar-item mt-3">
+                                    <div class="h-bar-info"><span>Genomic Mapping Alpha</span><span>Active</span></div>
+                                    <div class="h-bar-track"><div class="h-bar-fill bg-success" style="width: 85%;"></div></div>
+                                </div>
+                                <div class="h-bar-item mt-3">
+                                    <div class="h-bar-info"><span>Protein Synth Beta</span><span>Review</span></div>
+                                    <div class="h-bar-track"><div class="h-bar-fill" style="width: 30%; background: #38bdf8;"></div></div>
+                                </div>
+                            </div>
+                            <button class="btn-dash mt-4 full-width" style="margin-top: 35px;" aria-label="View trial specs" onclick="location.href='error.html'">View Full Protocol</button>
+                        </div>
+                        
+                        <div class="creative-widget" style="padding: 24px; text-align: center; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 15px;">
+                            <i class="fa-solid fa-flask-vial" style="font-size: 3rem; color: var(--accent-color);"></i>
+                            <h3>R&D Expenditure</h3>
+                            <p class="subtitle">Quarter 3 Analysis</p>
+                            <h2 style="font-size: 2.5rem; color: var(--text-main);">$1.2M</h2>
+                            <p class="badge badge-progress" style="font-size: 0.8rem;">On Target</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 4. AI ANALYSIS -->
+                <section id="ai-analysis" class="dash-section">
+                    <div class="section-header-flex">
+                        <div class="section-text">
+                            <h2>AI Neural Network</h2>
+                            <p class="subtitle">Predictive models and diagnostic assistance metrics.</p>
+                        </div>
+                        <button class="btn-dash" aria-label="Train Model" onclick="location.href='error.html'">Retrain Model</button>
+                    </div>
+
+                    <div class="chart-box">
+                        <div class="box-header">
+                            <div>
+                                <h3>Diagnostic Confidence</h3>
+                                <p class="subtitle">Algorithm confidence levels across varying disease models.</p>
+                            </div>
+                        </div>
+                        <div class="canvas-container" style="height: 350px;">
+                            <!-- Bar chart to be rendered here -->
+                            <canvas id="aiBarChart"></canvas>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 5. REPORTS -->
+                <section id="reports" class="dash-section">
+                    <div class="section-header-flex">
+                        <div class="section-text">
+                            <h2>Compliance & Reporting</h2>
+                            <p class="subtitle">Audit logs, QA documentation, and finalized clinical reports.</p>
+                        </div>
+                    </div>
+
+                    <div class="creative-widget" style="padding: 30px;">
+                        <div class="upload-zone" id="report-upload-zone">
+                            <i class="fa-solid fa-file-medical text-accent"></i>
+                            <h3>Import Regulatory Documents</h3>
+                            <p style="margin-bottom: 20px;" class="subtitle">Secure upload for HIPAA compliance documents (.pdf, .docx).</p>
+                            
+                            <input type="file" id="report-file-input" accept=".pdf,.docx" style="display: none;">
+                            <button class="btn-dash outline-glow" id="report-select-btn" aria-label="Select files to upload">Select Files</button>
+                            
+                            <div id="report-file-name" style="font-size: 0.9rem; color: var(--text-muted); display: none; margin-top: 15px;">No file selected</div>
+                            <div id="report-file-error" style="color: var(--danger-color); font-size: 0.85rem; display: none; margin-top: 10px;">Invalid document format.</div>
+                        </div>
+
+                        <div class="list-header" style="border-bottom: 1px solid var(--border-color); padding-bottom: 15px; margin-bottom: 20px;">
+                            <h3>Recent Generated Reports</h3>
+                        </div>
+                        <ul style="display: flex; flex-direction: column; gap: 10px;">
+                            <li style="display: flex; justify-content: space-between; align-items: center; background: var(--bg-tertiary); padding: 15px; border-radius: var(--radius-sm);">
+                                <div class="reportTexts"><i class="fa-solid fa-file-pdf" style="color: #ef4444; margin-right: 10px;"></i> Exome_Analysis_Batch_92.pdf</div>
+                                <button class="dwnbtn btn-dash outline-glow" style="padding: 5px 10px; font-size: 0.8rem;" aria-label="Download PDF" onclick="location.href='error.html'">Download</button>
+                            </li>
+                            <li style="display: flex; justify-content: space-between; align-items: center; background: var(--bg-tertiary); padding: 15px; border-radius: var(--radius-sm);">
+                                <div class="reportTexts"><i class="fa-solid fa-file-excel" style="color: #10b981; margin-right: 10px;"></i> Annual_Quality_Control_Log.csv</div>
+                                <button class="dwnbtn btn-dash outline-glow" style="padding: 5px 10px; font-size: 0.8rem;" aria-label="Download Excel" onclick="location.href='error.html'">Download</button>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- 6. SETTINGS -->
+                <section id="settings" class="dash-section">
+                    <form id="settings-form" class="section-header-flex" style="margin-bottom: 0;">
+                        <div class="section-text">
+                            <h2>Portal Settings</h2>
+                            <p class="subtitle">Configure database targets, security policies, and organization access.</p>
+                        </div>
+                        <button type="submit" class="btn-dash outline-glow" aria-label="Save Settings">Save Configuration</button>
+                    </form>
+
+                    <div class="creative-widget" style="padding: 24px; margin-top: 30px;">
+                        <h3 style="margin-bottom: 25px;">Database Integrity</h3>
+                        <div style="display: flex; flex-direction: column; gap: 20px; max-width: 600px;">
+                            <div class="input-group">
+                                <label for="adminEmail">IT Support Escalation Email</label>
+                                <input type="email" value="itsec@biotechnology.com" class="dash-input" name="adminEmail" id="adminEmail" required autocomplete="email">
+                                <span id="settings-email-error" style="color: var(--danger-color); font-size: 0.8rem; display: none; margin-top: 5px;">Invalid security email structure.</span>
+                            </div>
+
+                            <div class="input-group">
+                                <label for="labRegion">Primary Data Cluster</label>
+                                <select class="dash-input" name="labRegion" id="labRegion" aria-label="Select data cluster">
+                                    <option>US-East (Clinical DB)</option>
+                                    <option selected>EU-Central (Research DB)</option>
+                                    <option>AP-South (Sequencing Node)</option>
+                                </select>
+                            </div>
+                            
+                            <div class="input-group" style="display: flex; align-items: center; justify-content: space-between; border-top: 1px solid var(--border-color); padding-top: 20px; margin-top: 10px;">
+                                <div>
+                                    <h4 style="margin-bottom: 5px;">Strict Data Isolation</h4>
+                                    <p style="font-size: 0.85rem; color: var(--text-muted);">Prevent crosstalk between independent clinical data pools.</p>
+                                </div>
+                                <button type="button" class="btn-dash" style="background: var(--success-color);" aria-label="Toggle Isolation" onclick="location.href='error.html'">Enforced</button>
+                            </div>
+
+                            <div class="input-group" style="border-top: 1px solid var(--border-color); padding-top: 20px; margin-top: 10px;">
+                                <h4 style="margin-bottom: 15px;">Compliance Actions</h4>
+                                <button type="button" class="sttbtn1 btn-dash outline-glow" aria-label="Audit Logs" onclick="location.href='error.html'"><i class="fa-solid fa-list-check" style="margin-right:8px;"></i> View Audit Trajectory</button>
+                                <button type="button" class="sttbtn2 btn-dash outline-glow" style="border-color: var(--danger-color); color: var(--danger-color); margin-left: 10px;" aria-label="Purge Cache" onclick="location.href='error.html'"><i class="fa-solid fa-fire" style="margin-right:8px;"></i> Emergency Purge</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </main>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        // 1. Loader & Email Setup
+        const loader = document.getElementById('pageLoader');
+        
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                loader.classList.add('fade-out');
+                setTimeout(() => {
+                    loader.style.display = 'none';
+                    loader.setAttribute('aria-hidden', 'true');
+                }, 400);
+            }, 600);
+            
+            // Set User Email
+            const email = localStorage.getItem('userEmail');
+            if (email) {
+                document.getElementById('displayEmail').textContent = email;
+            } else {
+                // Redirect if not logged in (simplified protection)
+                window.location.href = './login.html';
+            }
+        });
+
+        // Add loader to all links
+        document.querySelectorAll('button[onclick*="location.href"], a[href]').forEach(el => {
+            el.addEventListener('click', (e) => {
+                const target = el.getAttribute('onclick') ? el.getAttribute('onclick').split("'")[1] : el.getAttribute('href');
+                if (target && !target.startsWith('#')) {
+                    loader.style.display = 'flex';
+                    loader.classList.remove('fade-out');
+                    loader.setAttribute('aria-hidden', 'false');
+                }
+            });
+        });
+
+        // 2. Theme Toggle Global Sync
+        const themeToggleBtn = document.getElementById('theme-toggle-btn');
+        const htmlElement = document.documentElement;
+        
+        function updateThemeIcon() {
+            if (htmlElement.getAttribute('data-theme') === 'light') {
+                themeToggleBtn.innerHTML = '<i class="fa-solid fa-moon"></i>';
+            } else {
+                themeToggleBtn.innerHTML = '<i class="fa-regular fa-sun"></i>';
+            }
+        }
+        updateThemeIcon();
+        
+        themeToggleBtn.addEventListener('click', () => {
+            const currentTheme = htmlElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            htmlElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('bt-theme', newTheme);
+            updateThemeIcon();
+            updateChartColors(); 
+        });
+
+        // 3. Tab Routing via Sidebar
+        const navItems = document.querySelectorAll('.nav-item[data-target]');
+        const dashSections = document.querySelectorAll('.dash-section');
+
+        navItems.forEach(btn => {
+            btn.addEventListener('click', () => {
+                navItems.forEach(b => b.classList.remove('active'));
+                dashSections.forEach(s => s.classList.remove('active'));
+                
+                btn.classList.add('active');
+                const targetId = btn.getAttribute('data-target');
+                document.getElementById(targetId).classList.add('active');
+                
+                // Trigger chart resize if needed based on visibility
+                if (targetId === 'ai-analysis' && aiBarChart) {
+                    aiBarChart.resize();
+                }
+            });
+        });
+
+        // 4. Chart JS Implementations for Admin
+        let revenueChart, departmentChart, aiBarChart;
+
+        function initCharts() {
+            const ctxRev = document.getElementById('revenueChart');
+            const ctxDep = document.getElementById('departmentChart');
+            const ctxAi = document.getElementById('aiBarChart');
+            
+            if(!ctxRev || !ctxDep) return;
+
+            const isLight = htmlElement.getAttribute('data-theme') === 'light';
+            const textColor = isLight ? '#78716C' : '#A8A29E';
+            const gridColor = isLight ? 'rgba(0,0,0,0.05)' : 'rgba(255,255,255,0.05)';
+            const accentHex = '#D4A574'; // Amber Primary
+
+            // Fill gradient for revenue line chart
+            let gradient = ctxRev.getContext('2d').createLinearGradient(0, 0, 0, 400);
+            gradient.addColorStop(0, 'rgba(212, 165, 116, 0.5)');   
+            gradient.addColorStop(1, 'rgba(212, 165, 116, 0.0)');
+
+            // 1. Line Chart (Revenue Trend)
+            revenueChart = new Chart(ctxRev.getContext('2d'), {
+                type: 'line',
+                data: {
+                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                    datasets: [{
+                        label: 'Revenue ($)',
+                        data: [85000, 105000, 115000, 125000, 118000, 125000],
+                        borderColor: '#38bdf8', // Reference uses distinct blue stroke for this chart
+                        backgroundColor: 'rgba(56, 189, 248, 0.1)',
+                        borderWidth: 2,
+                        pointBackgroundColor: '#fff',
+                        pointBorderColor: '#38bdf8',
+                        pointRadius: 4,
+                        fill: true,
+                        tension: 0.3
+                    }]
+                },
+                options: { 
+                    responsive: true, 
+                    maintainAspectRatio: false, 
+                    plugins: { legend: { display: false } }, 
+                    scales: { 
+                        x: { ticks: { color: textColor, font: {family:'Inter'} }, grid: { display: false } }, 
+                        y: { ticks: { color: textColor, font: {family:'Inter'} }, grid: { color: gridColor } } 
+                    } 
+                }
+            });
+
+            // 2. Ring Chart (Department Distribution)
+            departmentChart = new Chart(ctxDep.getContext('2d'), {
+                type: 'pie',
+                data: {
+                    labels: ['Genomics 40%', 'Clinical 30%', 'Research 20%', 'Diagnostics 10%'],
+                    datasets: [{
+                        data: [40, 30, 20, 10],
+                        backgroundColor: ['#6366f1', '#a855f7', '#10b981', '#f59e0b'],
+                        borderWidth: 0,
+                        hoverOffset: 10
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { 
+                        legend: { 
+                            position: 'right', 
+                            labels: { color: textColor, font: { family: "'Inter'" }, usePointStyle: true, padding: 15 } 
+                        } 
+                    }
+                }
+            });
+            
+            // 3. Bar Chart (AI Analysis)
+            if(ctxAi) {
+                let barGrad = ctxAi.getContext('2d').createLinearGradient(0, 0, 0, 400);
+                barGrad.addColorStop(0, '#8B5CF6'); // purple
+                barGrad.addColorStop(1, '#38bdf8'); // blue
+                
+                aiBarChart = new Chart(ctxAi.getContext('2d'), {
+                    type: 'bar',
+                    data: {
+                        labels: ['Oncology', 'Cardiology', 'Neurology', 'Genetics', 'Virology'],
+                        datasets: [{
+                            label: 'Model Confidence (%)',
+                            data: [98.5, 96.2, 94.0, 99.1, 95.8],
+                            backgroundColor: barGrad,
+                            borderRadius: 6
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: { legend: { display: false } },
+                        scales: {
+                            x: { ticks: { color: textColor, font: {family:'Inter'} }, grid: { display: false } }, 
+                            y: { ticks: { color: textColor, font: {family:'Inter'} }, grid: { color: gridColor }, min: 80, max: 100 } 
+                        }
+                    }
+                });
+            }
+        }
+
+        function updateChartColors() {
+            if(!revenueChart || !departmentChart) return;
+            const isLight = htmlElement.getAttribute('data-theme') === 'light';
+            const textColor = isLight ? '#78716C' : '#A8A29E';
+            const gridColor = isLight ? 'rgba(0,0,0,0.05)' : 'rgba(255,255,255,0.05)';
+
+            revenueChart.options.scales.x.ticks.color = textColor;
+            revenueChart.options.scales.y.ticks.color = textColor;
+            revenueChart.options.scales.y.grid.color = gridColor;
+            revenueChart.update();
+
+            departmentChart.options.plugins.legend.labels.color = textColor;
+            departmentChart.update();
+            
+            if(aiBarChart) {
+                aiBarChart.options.scales.x.ticks.color = textColor;
+                aiBarChart.options.scales.y.ticks.color = textColor;
+                aiBarChart.options.scales.y.grid.color = gridColor;
+                aiBarChart.update();
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', initCharts);
+
+        // 5. Form & Upload validations
+        const settingsForm = document.getElementById('settings-form');
+        const settingsEmailInput = document.getElementById('adminEmail');
+        const settingsEmailError = document.getElementById('settings-email-error');
+
+        if (settingsForm) {
+            settingsForm.addEventListener('submit', function(e) {
+                e.preventDefault(); 
+                const emailValue = settingsEmailInput.value.trim();
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                
+                if (!emailRegex.test(emailValue)) {
+                    settingsEmailError.style.display = 'block';
+                    settingsEmailInput.style.borderColor = 'var(--danger-color)';
+                } else {
+                    settingsEmailError.style.display = 'none';
+                    settingsEmailInput.style.borderColor = '';
+                    location.href = 'error.html';
+                }
+            });
+            settingsEmailInput.addEventListener('input', () => { settingsEmailError.style.display = 'none'; settingsEmailInput.style.borderColor = ''; });
+        }
+
+        const reportFileInput = document.getElementById('report-file-input');
+        const reportSelectBtn = document.getElementById('report-select-btn');
+        const reportFileName = document.getElementById('report-file-name');
+
+        if(reportSelectBtn && reportFileInput) {
+            reportSelectBtn.addEventListener('click', () => { reportFileInput.click(); });
+            reportFileInput.addEventListener('change', function() {
+                const file = this.files[0];
+                if (file) {
+                    const ext = file.name.split('.').pop().toLowerCase();
+                    if(ext === 'pdf' || ext === 'docx') {
+                        location.href = 'error.html';
+                    } else {
+                        document.getElementById('report-file-error').style.display = 'block';
+                    }
+                }
+            });
+        }
+        // Search functionality
+        const searchInput = document.getElementById('adminSearch');
+        if(searchInput) {
+            searchInput.addEventListener('input', function(e) {
+                const term = e.target.value.toLowerCase();
+                const jobRows = document.querySelectorAll('.job-row');
+                let foundMatch = false;
+                
+                const labBtn = document.querySelector('.nav-item[data-target="lab-management"]');
+                if(term.length > 0 && !labBtn.classList.contains('active')) {
+                    const currentFocus = document.activeElement;
+                    labBtn.click();
+                    // Restore focus to prevent mobile keyboard from hiding
+                    if(currentFocus) setTimeout(() => currentFocus.focus(), 10);
+                }
+
+                jobRows.forEach(row => {
+                    if (row.id === 'no-results-msg') return;
+                    const deptEl = row.querySelector('.job-dept');
+                    if(deptEl) {
+                        const deptText = deptEl.textContent.toLowerCase();
+                        if(deptText.includes(term)) {
+                            row.style.display = '';
+                            foundMatch = true;
+                        } else {
+                            row.style.display = 'none';
+                        }
+                    }
+                });
+
+                let msgRow = document.getElementById('no-results-msg');
+                if(!foundMatch && term.length > 0) {
+                    if(!msgRow) {
+                        msgRow = document.createElement('div');
+                        msgRow.id = 'no-results-msg';
+                        msgRow.className = 'job-row';
+                        msgRow.innerHTML = '<div style="text-align:center; width:100%; color: var(--text-muted); padding: 20px;">Not available</div>';
+                        const container = document.querySelector('.job-card-rows');
+                        if(container) container.appendChild(msgRow);
+                    }
+                    msgRow.style.display = '';
+                } else if(msgRow) {
+                    msgRow.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Portal | BioTechnology</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23D4A574'/%3E%3Cstop offset='100%25' style='stop-color:%23C17E3A'/%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx='50' cy='50' r='48' fill='url(%23g)'/%3E%3Cellipse cx='50' cy='30' rx='10' ry='16' fill='none' stroke='%23fff' stroke-width='3'/%3E%3Cellipse cx='50' cy='70' rx='10' ry='16' fill='none' stroke='%23fff' stroke-width='3'/%3E%3Cline x1='40' y1='38' x2='60' y2='38' stroke='%23fff' stroke-width='2.5'/%3E%3Cline x1='40' y1='50' x2='60' y2='50' stroke='%23fff' stroke-width='2.5'/%3E%3Cline x1='40' y1='62' x2='60' y2='62' stroke='%23fff' stroke-width='2.5'/%3E%3C/svg%3E" />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- FontAwesome Library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/patientDashboard.css">
+</head>
+<body>
+    <!-- Theme Initializer -->
+    <script>
+        const savedTheme = localStorage.getItem('bt-theme') || 'light';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+    </script>
+
+    <!-- Global Loader -->
+    <div class="loader" id="pageLoader" aria-hidden="true" role="status">
+        <div class="loader-dna">
+            <div class="dna-strand">
+                <span></span><span></span><span></span>
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <p class="loader-text" id="loaderText">BioTechnology</p>
+    </div>
+
+    <div class="dash-layout">
+        
+        <!-- SIDE NAVIGATION -->
+        <aside class="dash-sidebar" id="dashSidebar">
+            <div class="sidebar-logo">
+                <a href="../index.html">
+                    <img src="../assets/Home1/Header/logo.webp" alt="BioTechnology Logo" class="site-logo">
+                </a>
+            </div>
+
+            <div class="patient-card">
+                <div class="patient-avatar"><i class="fa-solid fa-user"></i></div>
+                <h3 style="font-size: 1.1rem; margin-top: 5px;">Welcome Back</h3>
+                <span class="patient-id">ID: PT-84029</span>
+            </div>
+            
+            <nav class="sidebar-nav" id="sidebarNav">
+                <button class="nav-item active" data-target="dashboard" aria-label="Go to Overview">
+                    <i class="fa-solid fa-house-medical"></i> <span>Overview</span>
+                </button>
+                <button class="nav-item" data-target="my-results" aria-label="Go to My Results">
+                    <i class="fa-solid fa-file-waveform"></i> <span>My Results</span>
+                </button>
+                <button class="nav-item" data-target="telemedicine" aria-label="Go to Telemedicine">
+                    <i class="fa-solid fa-video"></i> <span>Telemedicine</span>
+                </button>
+                <button class="nav-item" data-target="clinical-trials" aria-label="Go to Clinical Trials">
+                    <i class="fa-solid fa-vial-virus"></i> <span>Clinical Trials</span>
+                </button>
+                <button class="nav-item" data-target="settings" aria-label="Go to Settings">
+                    <i class="fa-solid fa-gear"></i> <span>Settings</span>
+                </button>
+            </nav>
+        </aside>
+
+        <!-- MAIN CONTENT WRAPPER -->
+        <div class="dash-main">
+            
+            <!-- TOPBAR -->
+            <header class="dash-topbar">
+                <a href="../index.html" class="mobile-top-logo"><img src="../assets/Home1/Header/logo.webp" alt="BioTechnology Logo"></a>
+                
+                <div class="topbar-actions">
+                    <button class="btn-dash outline-glow exit-btn" onclick="location.href='../index.html'" aria-label="Logout"><i class="fa-solid fa-power-off"></i> <span class="exit-text">Logout</span></button>
+                    <button class="icon-btn" aria-label="Notifications" onclick="location.href='error.html'">
+                        <i class="fa-regular fa-bell"></i>
+                        <span class="notify-badge">1</span>
+                    </button>
+                    <button id="theme-toggle-btn" class="icon-btn" aria-label="Toggle Theme">
+                        <i class="fa-solid fa-moon"></i>
+                    </button>
+                    <div class="user-profile" onclick="location.href='error.html'">
+                        <div class="user-info">
+                            <span class="user-name" id="displayEmail">Patient</span>
+                            <span class="user-role">Member</span>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- CONTENT SECTIONS -->
+            <main class="dash-content-area">
+                
+                <!-- 1. DASHBOARD OVERVIEW -->
+                <section id="dashboard" class="dash-section active">
+                    
+                    <div class="welcome-banner">
+                        <div class="welcome-content">
+                            <h2>Your Health Journey Ahead</h2>
+                            <p>Good morning! Your recent genome sequencing results are fully processed and ready for your review. You have 1 upcoming consultation.</p>
+                            <button class="btn-dash" onclick="location.href='error.html'">View Latest Report</button>
+                        </div>
+                    </div>
+
+                    <div class="action-cards">
+                        <div class="creative-widget action-card" onclick="location.href='error.html'">
+                            <div class="action-icon"><i class="fa-solid fa-calendar-check"></i></div>
+                            <div class="action-details">
+                                <h3>Next Appointment</h3>
+                                <p>Dr. Sarah Jenkins • Oct 24, 10:00 AM</p>
+                            </div>
+                        </div>
+                        <div class="creative-widget action-card" onclick="location.href='error.html'">
+                            <div class="action-icon"><i class="fa-solid fa-file-prescription"></i></div>
+                            <div class="action-details">
+                                <h3>Action Required</h3>
+                                <p>Complete Pre-Trial Questionnaire</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="chart-box">
+                        <div class="box-header">
+                            <div>
+                                <h3>Biomarker Consistency Trend</h3>
+                                <p class="subtitle">Tracking key inflammatory markers over the last 12 months.</p>
+                            </div>
+                        </div>
+                        <div class="canvas-container">
+                            <canvas id="healthAreaChart"></canvas>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 2. MY RESULTS -->
+                <section id="my-results" class="dash-section">
+                    <div class="section-header-flex">
+                        <div class="section-text">
+                            <h2>Clinical Reports & Results</h2>
+                            <p class="subtitle">Access your genomic and clinical processing data securely too.</p>
+                        </div>
+                    </div>
+
+                    <div class="creative-widget">
+                        <div class="result-list">
+                            
+                            <div class="result-item">
+                                <div class="result-info">
+                                    <div class="result-date">
+                                        <span class="month">Oct</span>
+                                        <span class="day">15</span>
+                                    </div>
+                                    <div class="result-details-text">
+                                        <h4>Comprehensive NGS Panel</h4>
+                                        <p>Ordered by Dr. Jenkins • Genomic Dept.</p>
+                                        <div style="margin-top: 8px;"><span class="badge badge-success">Finalized</span></div>
+                                    </div>
+                                </div>
+                                <button class="btn-dash outline-glow" aria-label="Download results" onclick="location.href='error.html'"><i class="fa-solid fa-download" style="margin-right: 8px;"></i> View & Download PDF</button>
+                            </div>
+
+                            <div class="result-item">
+                                <div class="result-info">
+                                    <div class="result-date">
+                                        <span class="month">Sep</span>
+                                        <span class="day">28</span>
+                                    </div>
+                                    <div class="result-details-text">
+                                        <h4>Routine Blood Chemistry</h4>
+                                        <p>Ordered by Dr. Smith • Clinical Lab</p>
+                                        <div style="margin-top: 8px;"><span class="badge badge-success">Finalized</span></div>
+                                    </div>
+                                </div>
+                                <button class="btn-dash outline-glow" aria-label="Download results" onclick="location.href='error.html'"><i class="fa-solid fa-download" style="margin-right: 8px;"></i> View & Download PDF</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 3. TELEMEDICINE -->
+                <section id="telemedicine" class="dash-section">
+                    <div class="section-header-flex">
+                        <div class="section-text">
+                            <h2>Virtual Consultation</h2>
+                            <p class="subtitle">Connect securely with your healthcare provider.</p>
+                        </div>
+                        <button class="btn-dash outline-glow" onclick="location.href='error.html'">Schedule New</button>
+                    </div>
+
+                    <div class="creative-widget" style="padding: 24px;">
+                        <div class="video-call-box">
+                            <i class="fa-solid fa-user-doctor" style="font-size: 4rem; color: #fff; opacity: 0.5;"></i>
+                            <h3 style="color: #fff; margin-top: 15px;">Waiting for Dr. Jenkins to join...</h3>
+                            
+                            <div class="video-controls">
+                                <button class="icon-btn" aria-label="Mute Audio" onclick="location.href='error.html'"><i class="fa-solid fa-microphone-slash"></i></button>
+                                <button class="icon-btn" aria-label="Stop Video" onclick="location.href='error.html'"><i class="fa-solid fa-video-slash"></i></button>
+                                <button class="icon-btn bg-danger" aria-label="End Call" style="color:#fff;" onclick="location.href='error.html'"><i class="fa-solid fa-phone-slash"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 4. CLINICAL TRIALS -->
+                <section id="clinical-trials" class="dash-section">
+                    <div class="section-header-flex">
+                        <div class="section-text">
+                            <h2>Clinical Trial Eligibility</h2>
+                            <p class="subtitle">Research studies you may qualify for based on your genomic profile.</p>
+                        </div>
+                    </div>
+
+                    <div class="creative-widget">
+                        <div class="result-list">
+                            <div class="result-item">
+                                <div class="result-info" style="align-items: flex-start;">
+                                    <div style="color: var(--accent-color); font-size: 1.5rem; margin-top: 5px;"><i class="fa-solid fa-dna"></i></div>
+                                    <div class="result-details-text">
+                                        <h4>Gene Therapy Cohort B (Phase II)</h4>
+                                        <p style="margin-bottom: 15px; max-width: 500px;">Evaluating the efficacy of targeted CRISPR-Cas9 sequence modifications in adult patients.</p>
+                                        <span class="badge badge-info">Matching Profile</span>
+                                    </div>
+                                </div>
+                                <button class="btn-dash" aria-label="Express Interest" onclick="location.href='error.html'">Express Interest</button>
+                            </div>
+                            <div class="result-item">
+                                <div class="result-info" style="align-items: flex-start;">
+                                    <div style="color: var(--accent-color); font-size: 1.5rem; margin-top: 5px;"><i class="fa-solid fa-pills"></i></div>
+                                    <div class="result-details-text">
+                                        <h4>Immunotherapy Trial Series C</h4>
+                                        <p style="margin-bottom: 15px; max-width: 500px;">Assessing safety profiles of novel immune checkpoint inhibitors.</p>
+                                        <span class="badge badge-success">High Match</span>
+                                    </div>
+                                </div>
+                                <button class="btn-dash" aria-label="Express Interest" onclick="location.href='error.html'">Express Interest</button>
+                            </div>
+                            <div class="result-item">
+                                <div class="result-info" style="align-items: flex-start;">
+                                    <div style="color: var(--accent-color); font-size: 1.5rem; margin-top: 5px;"><i class="fa-solid fa-brain"></i></div>
+                                    <div class="result-details-text">
+                                        <h4>Neurological Pathway Study</h4>
+                                        <p style="margin-bottom: 15px; max-width: 500px;">Evaluating neuro-generative responses to BioTech compound XYZ.</p>
+                                        <span class="badge badge-warn">Review Pending</span>
+                                    </div>
+                                </div>
+                                <button class="btn-dash outline-glow" aria-label="Learn More" onclick="location.href='error.html'">Learn More</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 5. SETTINGS -->
+                <section id="settings" class="dash-section">
+                    <form id="patient-settings-form" class="section-header-flex" style="margin-bottom: 0;">
+                        <div class="section-text">
+                            <h2>Profile & Security</h2>
+                            <p class="subtitle">Manage your personal details and communication preferences.</p>
+                        </div>
+                        <button type="submit" class="btn-dash outline-glow" aria-label="Save Settings">Update Profile</button>
+                    </form>
+
+                    <div class="creative-widget" style="padding: 24px; margin-top: 30px;">
+                        <div style="display: flex; flex-direction: column; gap: 20px; max-width: 500px;">
+                            
+                            <div class="input-group">
+                                <label for="contactEmail">Contact Email</label>
+                                <input type="email" class="dash-input" name="contactEmail" id="contactEmail" required>
+                                <span id="email-error" style="color: var(--danger-color); font-size: 0.8rem; display: none; margin-top: 5px;">Invalid email address.</span>
+                            </div>
+                            
+                            <div class="input-group">
+                                <label for="phoneNum">Phone Number (For Appointment SMS)</label>
+                                <input type="tel" class="dash-input" name="phoneNum" id="phoneNum" placeholder="10-digit number" autocomplete="tel" required maxlength="10">
+                                <span id="phone-error" style="color: var(--danger-color); font-size: 0.8rem; display: none; margin-top: 5px;">Please enter exactly 10 digits.</span>
+                            </div>
+
+                            <div class="input-group" style="border-top: 1px solid var(--border-color); padding-top: 20px; margin-top: 10px;">
+                                <h4 style="margin-bottom: 15px;">Data Sharing Preferences</h4>
+                                <label style="display: flex; align-items: center; gap: 10px; cursor: pointer; color: var(--text-main); font-weight: normal;">
+                                    <input type="checkbox" checked style="width: 18px; height: 18px; accent-color: var(--accent-color);">
+                                    Allow anonymized data usage for internal R&D
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </main>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        // 1. Loader & Email Setup
+        const loader = document.getElementById('pageLoader');
+        
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                loader.classList.add('fade-out');
+                setTimeout(() => {
+                    loader.style.display = 'none';
+                    loader.setAttribute('aria-hidden', 'true');
+                }, 400);
+            }, 600);
+            
+            // Set User Email
+            const email = localStorage.getItem('userEmail');
+            if (email) {
+                document.getElementById('displayEmail').textContent = email;
+                const contactInput = document.getElementById('contactEmail');
+                if(contactInput) contactInput.value = email;
+            } else {
+                // Redirect if not logged in
+                window.location.href = './login.html';
+            }
+        });
+
+        // Add loader to all links
+        document.querySelectorAll('button[onclick*="location.href"], a[href]').forEach(el => {
+            el.addEventListener('click', (e) => {
+                const target = el.getAttribute('onclick') ? el.getAttribute('onclick').split("'")[1] : el.getAttribute('href');
+                if (target && !target.startsWith('#')) {
+                    loader.style.display = 'flex';
+                    loader.classList.remove('fade-out');
+                    loader.setAttribute('aria-hidden', 'false');
+                }
+            });
+        });
+
+        // 2. Theme Toggle Global Sync
+        const themeToggleBtn = document.getElementById('theme-toggle-btn');
+        const htmlElement = document.documentElement;
+        
+        function updateThemeIcon() {
+            if (htmlElement.getAttribute('data-theme') === 'light') {
+                themeToggleBtn.innerHTML = '<i class="fa-solid fa-moon"></i>';
+            } else {
+                themeToggleBtn.innerHTML = '<i class="fa-regular fa-sun"></i>';
+            }
+        }
+        updateThemeIcon();
+        
+        themeToggleBtn.addEventListener('click', () => {
+            const currentTheme = htmlElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            htmlElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('bt-theme', newTheme);
+            updateThemeIcon();
+            updateChartColors(); 
+        });
+
+        // 3. Tab Routing via Sidebar
+        const navItems = document.querySelectorAll('.nav-item[data-target]');
+        const dashSections = document.querySelectorAll('.dash-section');
+
+        navItems.forEach(btn => {
+            btn.addEventListener('click', () => {
+                navItems.forEach(b => b.classList.remove('active'));
+                dashSections.forEach(s => s.classList.remove('active'));
+                
+                btn.classList.add('active');
+                const targetId = btn.getAttribute('data-target');
+                document.getElementById(targetId).classList.add('active');
+            });
+        });
+
+        // 4. Chart JS Implementations for Patient (Filled Area Chart)
+        let healthAreaChart;
+
+        function initCharts() {
+            const ctxArea = document.getElementById('healthAreaChart');
+            if(!ctxArea) return;
+
+            const isLight = htmlElement.getAttribute('data-theme') === 'light';
+            const textColor = isLight ? '#78716C' : '#A8A29E';
+            const gridColor = isLight ? 'rgba(0,0,0,0.05)' : 'rgba(255,255,255,0.05)';
+            const accentHex = '#D4A574'; 
+
+            let gradient = ctxArea.getContext('2d').createLinearGradient(0, 0, 0, 400);
+            gradient.addColorStop(0, 'rgba(212, 165, 116, 0.6)');   
+            gradient.addColorStop(1, 'rgba(212, 165, 116, 0.05)');
+
+            healthAreaChart = new Chart(ctxArea.getContext('2d'), {
+                type: 'line',
+                data: {
+                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                    datasets: [{
+                        label: 'CRP Levels (mg/L)',
+                        data: [4.2, 3.8, 3.5, 3.8, 3.1, 2.9, 2.5, 2.2, 1.9, 1.5, 1.4, 1.2],
+                        borderColor: accentHex,
+                        backgroundColor: gradient,
+                        borderWidth: 3,
+                        pointBackgroundColor: '#fff',
+                        pointBorderColor: accentHex,
+                        pointRadius: 4,
+                        fill: true,
+                        tension: 0.4 // Smooth curve
+                    }]
+                },
+                options: { 
+                    responsive: true, 
+                    maintainAspectRatio: false, 
+                    plugins: { legend: { display: false } }, 
+                    scales: { 
+                        x: { ticks: { color: textColor, font: {family:'Inter'} }, grid: { display: false } }, 
+                        y: { 
+                            ticks: { color: textColor, font: {family:'Inter'} }, 
+                            grid: { color: gridColor },
+                            title: { display: true, text: 'mg/L', color: textColor, font: {family:'Inter', size:12} }
+                        } 
+                    } 
+                }
+            });
+        }
+
+        function updateChartColors() {
+            if(!healthAreaChart) return;
+            const isLight = htmlElement.getAttribute('data-theme') === 'light';
+            const textColor = isLight ? '#78716C' : '#A8A29E';
+            const gridColor = isLight ? 'rgba(0,0,0,0.05)' : 'rgba(255,255,255,0.05)';
+
+            healthAreaChart.options.scales.x.ticks.color = textColor;
+            healthAreaChart.options.scales.y.ticks.color = textColor;
+            healthAreaChart.options.scales.y.grid.color = gridColor;
+            healthAreaChart.options.scales.y.title.color = textColor;
+            healthAreaChart.update();
+        }
+
+        document.addEventListener('DOMContentLoaded', initCharts);
+
+        // Settings Form simulation
+        document.getElementById('patient-settings-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const emailInput = document.getElementById('contactEmail');
+            const phoneInput = document.getElementById('phoneNum');
+            let valid = true;
+            
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(emailInput.value)) {
+                document.getElementById('email-error').style.display = 'block';
+                emailInput.style.borderColor = 'var(--danger-color)';
+                valid = false;
+            } else {
+                document.getElementById('email-error').style.display = 'none';
+                emailInput.style.borderColor = '';
+            }
+            
+            const phoneRegex = /^\d{10}$/;
+            if (!phoneRegex.test(phoneInput.value)) {
+                document.getElementById('phone-error').style.display = 'block';
+                phoneInput.style.borderColor = 'var(--danger-color)';
+                valid = false;
+            } else {
+                document.getElementById('phone-error').style.display = 'none';
+                phoneInput.style.borderColor = '';
+            }
+            
+            if(valid) {
+                location.href = 'error.html';
+            }
+        });
+
+        document.getElementById('phoneNum').addEventListener('input', function(e) {
+            this.value = this.value.replace(/\D/g, '').slice(0, 10);
+            if(this.value.length === 10) {
+                document.getElementById('phone-error').style.display = 'none';
+                this.style.borderColor = '';
+            }
+        });
+
+    </script>
+</body>
+</html>
